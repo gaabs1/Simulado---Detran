@@ -7,5 +7,7 @@ export default defineConfig({
   server: {
     port: 3000
   },
-  // Como os arquivos estão na raiz (root), não precisamos mudar o root.
+  define: {
+    'process.env.API_KEY': JSON.stringify(process.env.API_KEY)
+  }
 });
