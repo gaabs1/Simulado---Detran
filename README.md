@@ -1,20 +1,34 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
 
-# Run and deploy your AI Studio app
+# Maratona DETRAN-SP
 
-This contains everything you need to run your app locally.
+Simulado completo com 120 questões e inteligência artificial.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1vw7OLP0wnSr1bYlPOrBt3EDb0JyOrl5g
+## Como rodar localmente:
 
-## Run Locally
+1. **Clone o repositório:**
+   ```bash
+   git clone <url-do-seu-repositorio>
+   cd <nome-da-pasta>
+   ```
 
-**Prerequisites:**  Node.js
+2. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
 
+3. **Configure sua API Key (Opcional para explicações):**
+   Crie um arquivo chamado `.env` na raiz e adicione:
+   ```env
+   VITE_GEMINI_API_KEY=sua_chave_aqui
+   ```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+4. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
+   Acesse: `http://localhost:3000`
+
+## Como publicar no GitHub Pages ou Vercel:
+
+- **Vercel/Netlify:** Basta conectar seu repositório do GitHub. Ele detectará automaticamente que é um projeto Vite.
+- **GitHub Pages:** Você precisará configurar um GitHub Action para fazer o build e publicar a pasta `dist`.
