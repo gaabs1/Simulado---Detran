@@ -1,0 +1,5 @@
+{
+  "name": "Simulado DETRAN-SP Master",
+  "description": "Um simulador completo e interativo para a prova teórica do DETRAN-SP, com 120 questões, categorias oficiais e explicações baseadas em IA para as respostas.",
+  "requestFramePermissions": []
+}
