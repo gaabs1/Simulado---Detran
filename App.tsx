@@ -6,7 +6,7 @@ import { Button } from './components/Button';
 import { ScoreBoard } from './components/ScoreBoard';
 import { getAnswerExplanation } from './services/geminiService';
 
-const STORAGE_KEY = 'detran_maratona_progress_v1';
+const STORAGE_KEY = 'detran_maratona_full_v2';
 
 const App: React.FC = () => {
   const [gameState, setGameState] = useState<'start' | 'quiz' | 'result'>('start');
@@ -22,6 +22,9 @@ const App: React.FC = () => {
   const [explanation, setExplanation] = useState<string | null>(null);
   const [isLoadingExplanation, setIsLoadingExplanation] = useState(false);
   const [hasSavedProgress, setHasSavedProgress] = useState(false);
+  
+  const [imageLoading, setImageLoading] = useState(true);
+  const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
@@ -45,6 +48,11 @@ const App: React.FC = () => {
     }
   }, [quiz, gameState]);
 
+  useEffect(() => {
+    setImageLoading(true);
+    setImageError(false);
+  }, [quiz.currentQuestionIndex]);
+
   const startNewQuiz = () => {
     localStorage.removeItem(STORAGE_KEY);
     setQuiz({
@@ -65,9 +73,9 @@ const App: React.FC = () => {
       const parsed = JSON.parse(saved);
       setQuiz(parsed);
       setGameState('quiz');
-      const lastAnswer = parsed.userAnswers[parsed.currentQuestionIndex];
-      if (lastAnswer !== null) {
-        setSelectedOption(lastAnswer);
+      const currentAns = parsed.userAnswers[parsed.currentQuestionIndex];
+      if (currentAns !== null) {
+        setSelectedOption(currentAns);
         setIsAnswered(true);
       }
     }
@@ -133,8 +141,8 @@ const App: React.FC = () => {
               D
             </div>
             <div>
-              <h1 className="text-lg font-bold text-slate-800">Maratona DETRAN-SP</h1>
-              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Simulado PDF Detalhado</p>
+              <h1 className="text-lg font-bold text-slate-800">Simulado Master DETRAN</h1>
+              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Banco de Dados: {QUESTIONS.length} Questões</p>
             </div>
           </div>
         </div>
@@ -148,18 +156,18 @@ const App: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h2 className="text-3xl font-black text-slate-800 mb-4">Início da Prova</h2>
+            <h2 className="text-3xl font-black text-slate-800 mb-4">Maratona de Estudos</h2>
             <p className="text-slate-600 mb-8 max-w-md mx-auto leading-relaxed">
-              Questões extraídas diretamente do PDF oficial. Total de <strong>{QUESTIONS.length} perguntas</strong> com suporte visual para as placas.
+              Você está prestes a iniciar o simulado completo com <strong>{QUESTIONS.length} perguntas</strong> e suporte visual para todas as placas oficiais.
             </p>
             <div className="flex flex-col gap-3">
               {hasSavedProgress && (
                 <Button size="lg" variant="success" onClick={resumeQuiz} className="py-4 shadow-lg shadow-emerald-100 font-bold">
-                  Continuar Simulado
+                  Continuar Maratona
                 </Button>
               )}
               <Button size="lg" onClick={startNewQuiz} variant={hasSavedProgress ? 'outline' : 'primary'} className="py-4 font-bold">
-                Começar do Zero
+                Iniciar Nova Prova
               </Button>
             </div>
           </div>
@@ -179,18 +187,43 @@ const App: React.FC = () => {
                 <span className="bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">
                   {currentQuestion.category}
                 </span>
-                <span className="text-sm font-black text-slate-300">#{currentQuestion.id}</span>
+                <span className="text-sm font-black text-slate-300">Questão {currentQuestion.id} / {QUESTIONS.length}</span>
               </div>
 
               {currentQuestion.imageUrl && (
-                <div className="flex justify-center mb-8 animate-in fade-in duration-700">
-                  <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                    <img 
-                      src={currentQuestion.imageUrl} 
-                      alt="Sinalização de Trânsito" 
-                      className="max-h-40 md:max-h-56 object-contain mix-blend-multiply"
-                    />
+                <div className="flex flex-col items-center justify-center mb-10">
+                  <div className="relative p-6 bg-white rounded-3xl border-4 border-slate-50 shadow-sm min-h-[220px] w-full max-w-[340px] flex items-center justify-center overflow-hidden">
+                    {imageLoading && !imageError && (
+                      <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-50/50 z-10">
+                        <div className="w-10 h-10 border-4 border-blue-100 border-t-blue-600 rounded-full animate-spin"></div>
+                      </div>
+                    )}
+                    
+                    {imageError ? (
+                      <div className="flex flex-col items-center gap-3 text-slate-300 p-6 text-center">
+                        <div className="p-4 bg-slate-50 rounded-full">
+                          <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                        <p className="text-xs font-black text-slate-400 uppercase">Referência Indisponível</p>
+                      </div>
+                    ) : (
+                      <img 
+                        src={currentQuestion.imageUrl} 
+                        alt={currentQuestion.imageDescription || "Sinalização de Trânsito"}
+                        referrerPolicy="no-referrer"
+                        onLoad={() => setImageLoading(false)}
+                        onError={() => {
+                          console.error("Image load failed:", currentQuestion.imageUrl);
+                          setImageError(true);
+                          setImageLoading(false);
+                        }}
+                        className={`max-h-52 md:max-h-64 w-auto object-contain transition-all duration-700 ${imageLoading ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}
+                      />
+                    )}
                   </div>
+                  <p className="mt-4 text-[11px] text-slate-400 font-black uppercase tracking-[0.2em]">Sinalização Oficial</p>
                 </div>
               )}
               
@@ -229,8 +262,8 @@ const App: React.FC = () => {
               {explanation && (
                 <div className="mt-8 p-6 bg-amber-50 rounded-2xl border border-amber-100 animate-in fade-in slide-in-from-top-4 duration-500">
                   <div className="flex items-center gap-3 mb-3 text-amber-800 font-black text-xs uppercase tracking-widest">
-                    <div className="w-6 h-6 bg-amber-200 rounded-lg flex items-center justify-center">💡</div>
-                    Explicação Professor IA
+                    <div className="w-6 h-6 bg-amber-200 rounded-lg flex items-center justify-center">🎓</div>
+                    Explicação Instrutor IA
                   </div>
                   <p className="text-amber-900 text-sm leading-relaxed italic font-medium">"{explanation}"</p>
                 </div>
@@ -242,7 +275,7 @@ const App: React.FC = () => {
                     <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce"></div>
                     <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce [animation-delay:-0.1s]"></div>
                     <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce [animation-delay:-0.2s]"></div>
-                    Analisando Legislação...
+                    Consultando CTB...
                   </div>
                 </div>
               )}
@@ -266,7 +299,7 @@ const App: React.FC = () => {
           <div className="animate-in zoom-in-95 duration-700">
             <div className="bg-white rounded-3xl shadow-2xl p-10 border border-slate-100 text-center relative overflow-hidden">
               <div className={`absolute top-0 left-0 w-full h-2 ${isApproved ? 'bg-emerald-500' : 'bg-amber-500'}`} />
-              <h2 className="text-4xl font-black text-slate-800 mb-8">Resultado</h2>
+              <h2 className="text-4xl font-black text-slate-800 mb-8">Desempenho Final</h2>
               
               <div className="flex justify-center mb-10">
                 <div className="relative">
@@ -289,17 +322,21 @@ const App: React.FC = () => {
 
               <div className="grid grid-cols-2 gap-6 mb-10">
                 <div className="bg-emerald-50 p-6 rounded-3xl border border-emerald-100 shadow-sm text-emerald-700">
-                  <span className="text-[10px] font-black uppercase block mb-2">Acertos</span>
+                  <span className="text-[10px] font-black uppercase block mb-2 text-emerald-500">Corretas</span>
                   <span className="text-4xl font-black">{quiz.score.correct}</span>
                 </div>
                 <div className="bg-red-50 p-6 rounded-3xl border border-red-100 shadow-sm text-red-700">
-                  <span className="text-[10px] font-black uppercase block mb-2">Erros</span>
+                  <span className="text-[10px] font-black uppercase block mb-2 text-red-400">Incorretas</span>
                   <span className="text-4xl font-black">{quiz.score.wrong}</span>
                 </div>
               </div>
 
+              <p className="text-slate-500 mb-8 font-medium italic">
+                {isApproved ? "Parabéns! Você atingiu a pontuação mínima necessária para aprovação." : "Atenção: Você precisa de no mínimo 70% para ser aprovado na prova oficial."}
+              </p>
+
               <Button variant="outline" size="lg" fullWidth onClick={startNewQuiz} className="py-5 font-black uppercase tracking-widest border-slate-200 text-slate-500">
-                Reiniciar Simulado
+                Reiniciar Maratona
               </Button>
             </div>
           </div>

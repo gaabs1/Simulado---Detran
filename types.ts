@@ -15,6 +15,7 @@ export interface Question {
   options: string[];
   correctAnswer: number; // Index of options array (0-3)
   imageUrl?: string;
+  imageDescription?: string; // Texto descritivo caso a imagem não carregue
 }
 
 export interface QuizState {
