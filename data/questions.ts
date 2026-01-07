@@ -35,14 +35,16 @@ export const QUESTIONS: Question[] = [
     category: Category.SINALIZACAO, 
     text: "A placa de regulamentação R-39 indica que a área, via ou faixa:", 
     options: ["impede a circulação de caminhões e furgões", "se destina à circulação exclusiva de caminhões do tipo furgão", "se destina, exclusivamente, para a circulação de caminhões", "se destina à circulação de veículos de transporte de produtos perecíveis"], 
-    correctAnswer: 2 
+    correctAnswer: 2,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Sinal_R-39.svg/240px-Sinal_R-39.svg.png"
   },
   { 
     id: 6, 
     category: Category.SINALIZACAO, 
-    text: "Diante da placa de regulamentação R-4a (Proibido virar à esquerda), qual deve ser a ação do condutor?", 
+    text: "Diante da placa de regulamentação R-4a, qual deve ser a ação do condutor?", 
     options: ["deve virar à esquerda", "não deve virar à esquerda", "não deve virar à direita", "deve virar à direita"], 
-    correctAnswer: 1 
+    correctAnswer: 1,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Sinal_R-4a.svg/240px-Sinal_R-4a.svg.png"
   },
   { 
     id: 7, 
@@ -89,9 +91,10 @@ export const QUESTIONS: Question[] = [
   { 
     id: 13, 
     category: Category.SINALIZACAO, 
-    text: "Diante da placa de regulamentação R-6c (Proibido parar e estacionar), qual deve ser a ação do condutor?", 
+    text: "Diante da placa de regulamentação R-6c, qual deve ser a ação do condutor?", 
     options: ["pode colocar o veículo para operações de carga e descarga", "pode colocar o veículo para embarque e desembarque", "pode colocar o veículo aos sábados, domingos e feriados", "em nenhuma hipótese pode parar ou estacionar o veículo na extensão indicada"], 
-    correctAnswer: 3 
+    correctAnswer: 3,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Sinal_R-6c.svg/240px-Sinal_R-6c.svg.png"
   },
   { 
     id: 14, 
@@ -110,7 +113,7 @@ export const QUESTIONS: Question[] = [
   { 
     id: 16, 
     category: Category.DIRECAO_DEFENSIVA, 
-    text: "Chuva e freios deficientes são condições adversas relacionadas, respectivamente, com:", 
+    text: "Chuva e freios deficientes são situações de risco geradas por condições adversas relacionadas, respectivamente, com:", 
     options: ["via e veículo", "via e condutor", "clima e condutor", "clima e/ou ambiente e veículo"], 
     correctAnswer: 3 
   },
@@ -182,7 +185,8 @@ export const QUESTIONS: Question[] = [
     category: Category.SINALIZACAO, 
     text: "Diante da placa R-25d, qual deve ser a interpretação do condutor quanto ao sentido de circulação?", 
     options: ["é proibido seguir em frente ou à direita", "é obrigatório seguir em frente ou à esquerda", "é obrigatório seguir à esquerda", "é obrigatório seguir em frente ou à direita"], 
-    correctAnswer: 3 
+    correctAnswer: 3,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Sinal_R-25d.svg/240px-Sinal_R-25d.svg.png"
   },
   { 
     id: 27, 
@@ -196,7 +200,8 @@ export const QUESTIONS: Question[] = [
     category: Category.SINALIZACAO, 
     text: "Diante da placa de regulamentação R-5a (Proibido retornar à esquerda), qual deve ser a ação do condutor?", 
     options: ["deve retornar na via", "não deve virar à direita", "deve virar à esquerda na via", "não deve retornar na via"], 
-    correctAnswer: 3 
+    correctAnswer: 3,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Sinal_R-5a.svg/240px-Sinal_R-5a.svg.png"
   },
   { 
     id: 29, 
@@ -224,7 +229,8 @@ export const QUESTIONS: Question[] = [
     category: Category.SINALIZACAO, 
     text: "Diante da placa de advertência A-21a, o condutor deve estar alerta:", 
     options: ["ao estreitamento da pista à esquerda", "ao estreitamento da pista ao centro", "à ponte estreita na pista", "ao alargamento da pista à esquerda"], 
-    correctAnswer: 0 
+    correctAnswer: 0,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Sinal_A-21a.svg/240px-Sinal_A-21a.svg.png"
   },
   { 
     id: 33, 
@@ -259,14 +265,16 @@ export const QUESTIONS: Question[] = [
     category: Category.SINALIZACAO, 
     text: "A placa de regulamentação R-24b indica:", 
     options: ["início de trecho em declive", "passagem obrigatória à direita", "sentido proibido", "conversão à direita"], 
-    correctAnswer: 1 
+    correctAnswer: 1,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Sinal_R-24b.svg/240px-Sinal_R-24b.svg.png"
   },
   { 
     id: 38, 
     category: Category.SINALIZACAO, 
     text: "A placa de advertência A-13a alerta para risco de acidente relacionado a:", 
     options: ["confluência com via lateral à esquerda", "cruzamento movimentado", "passagem de mão única para dupla", "confluência lateral à direita"], 
-    correctAnswer: 0 
+    correctAnswer: 0,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Sinal_A-13a.svg/240px-Sinal_A-13a.svg.png"
   },
   { 
     id: 39, 
@@ -301,7 +309,8 @@ export const QUESTIONS: Question[] = [
     category: Category.SINALIZACAO, 
     text: "Diante da placa de advertência A-9 (Bifurcação em Y), o condutor deve saber que à frente:", 
     options: ["há estreitamento da via", "há cruzamento entre vias", "a via passa a ter mão dupla", "há bifurcação da via"], 
-    correctAnswer: 3 
+    correctAnswer: 3,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Sinal_A-9.svg/240px-Sinal_A-9.svg.png"
   },
   { 
     id: 44, 
@@ -322,7 +331,8 @@ export const QUESTIONS: Question[] = [
     category: Category.SINALIZACAO, 
     text: "A placa de regulamentação R-7 estabelece que é proibida a:", 
     options: ["ultrapassagem", "ultrapassagem de motocicletas", "parada em fila dupla", "circulação de automóveis"], 
-    correctAnswer: 0 
+    correctAnswer: 0,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Sinal_R-7.svg/240px-Sinal_R-7.svg.png"
   },
   { 
     id: 47, 
@@ -350,7 +360,8 @@ export const QUESTIONS: Question[] = [
     category: Category.SINALIZACAO, 
     text: "A placa de regulamentação R-20 proíbe os condutores de:", 
     options: ["utilizar qualquer sinalizador visual", "utilizar aparelho de som no interior", "produzir som alto com a buzina", "acionar buzina ou sinal sonoro"], 
-    correctAnswer: 3 
+    correctAnswer: 3,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Sinal_R-20.svg/240px-Sinal_R-20.svg.png"
   },
   { 
     id: 51, 
@@ -378,14 +389,16 @@ export const QUESTIONS: Question[] = [
     category: Category.SINALIZACAO, 
     text: "Diante da placa A-12 (Interseção em círculo), o condutor deve:", 
     options: ["passar pelo centro quando não houver veículos", "manter velocidade pois não há risco", "acelerar pois tem preferência", "reduzir a velocidade pois se trata de área de cruzamento"], 
-    correctAnswer: 3 
+    correctAnswer: 3,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Sinal_A-12.svg/240px-Sinal_A-12.svg.png"
   },
   { 
     id: 55, 
     category: Category.SINALIZACAO, 
     text: "Diante da placa A-4b, o condutor deve reduzir a velocidade pois a via apresenta:", 
     options: ["pista sinuosa", "curva acentuada à esquerda", "curva acentuada em S à direita", "estreitamento de pista à direita"], 
-    correctAnswer: 2 
+    correctAnswer: 2,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Sinal_A-4b.svg/240px-Sinal_A-4b.svg.png"
   },
   { 
     id: 56, 
@@ -411,9 +424,10 @@ export const QUESTIONS: Question[] = [
   { 
     id: 59, 
     category: Category.SINALIZACAO, 
-    text: "As placas S-2, S-7 e S-13 indicam respectivamente:", 
-    options: ["telefone, hotel e ferrovia", "telefone, restaurante e pronto-socorro", "telefone, restaurante e terminal rodoviário", "serviço telefônico, restaurante e terminal ferroviário"], 
-    correctAnswer: 3 
+    text: "Qual serviço a placa S-13 indica?", 
+    options: ["telefone", "hotel", "terminal rodoviário", "terminal ferroviário"], 
+    correctAnswer: 3,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Sinal_S-13.svg/240px-Sinal_S-13.svg.png"
   },
   { 
     id: 60, 
@@ -481,9 +495,10 @@ export const QUESTIONS: Question[] = [
   { 
     id: 69, 
     category: Category.SINALIZACAO, 
-    text: "As placas S-6, S-8, S-15 e S-16 indicam respectivamente:", 
-    options: ["ônibus, borracheiro, pedágio, turismo", "rodoviária, mecânico, turismo, pedágio", "ônibus, borracheiro, turismo, pedágio", "terminal rodoviário, borracheiro, informação turística e pedágio"], 
-    correctAnswer: 3 
+    text: "A placa S-15 indica o serviço de:", 
+    options: ["borracheiro", "mecânico", "informação turística", "pedágio"], 
+    correctAnswer: 2,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Sinal_S-15.svg/240px-Sinal_S-15.svg.png"
   },
   { 
     id: 70, 
@@ -504,7 +519,8 @@ export const QUESTIONS: Question[] = [
     category: Category.SINALIZACAO, 
     text: "A placa de indicação S-11 informa existência de área de:", 
     options: ["estação ferroviária", "turismo", "estação rodoviária", "aeroporto"], 
-    correctAnswer: 3 
+    correctAnswer: 3,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Sinal_S-11.svg/240px-Sinal_S-11.svg.png"
   },
   { 
     id: 73, 
@@ -516,9 +532,10 @@ export const QUESTIONS: Question[] = [
   { 
     id: 74, 
     category: Category.SINALIZACAO, 
-    text: "Placa R-25c indica que:", 
+    text: "A placa R-25c indica que:", 
     options: ["é obrigatório seguir à direita", "é proibido seguir em frente ou esquerda", "é obrigatório seguir em frente ou à direita", "é obrigatório seguir em frente ou à esquerda"], 
-    correctAnswer: 3 
+    correctAnswer: 3,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Sinal_R-25c.svg/240px-Sinal_R-25c.svg.png"
   },
   { 
     id: 75, 
@@ -559,7 +576,7 @@ export const QUESTIONS: Question[] = [
     id: 80, 
     category: Category.LEGISLACAO, 
     text: "Veículos com prioridade no trânsito são destinados a:", 
-    options: ["polícia e ambulância apenas", "utilidade pública apenas", "rede elétrica apenas", "socorro, polícia, fiscalização e ambulância"], 
+    options: ["polícia e ambulância apenas", "utilidade pública apenas", "rede elétrica apenas", "socorro, polícia, fiscalização e operação de trânsito e ambulância"], 
     correctAnswer: 3 
   },
   { 
@@ -593,7 +610,7 @@ export const QUESTIONS: Question[] = [
   { 
     id: 85, 
     category: Category.SINALIZACAO, 
-    text: "Placas de atrativo turístico têm por objetivo:", 
+    text: "Placas de identificação de atrativo turístico têm por objetivo:", 
     options: ["indicar e orientar sobre pontos turísticos", "regulamentar acessos", "advertir perigos", "alertar usuários externos"], 
     correctAnswer: 0 
   },
@@ -621,9 +638,10 @@ export const QUESTIONS: Question[] = [
   { 
     id: 89, 
     category: Category.SINALIZACAO, 
-    text: "Diante da placa R-9 (Proibido trânsito de caminhões), o condutor:", 
+    text: "Diante da placa R-9, qual deve ser a ação do condutor?", 
     options: ["não deverá transitar com caminhões a partir da placa", "não deve levar carga", "pode transitar sem carga", "pode transitar normalmente"], 
-    correctAnswer: 0 
+    correctAnswer: 0,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Sinal_R-9.svg/240px-Sinal_R-9.svg.png"
   },
   { 
     id: 90, 
@@ -663,9 +681,10 @@ export const QUESTIONS: Question[] = [
   { 
     id: 95, 
     category: Category.SINALIZACAO, 
-    text: "Placa R-30 obriga pedestre a andar à esquerda. O condutor deve atentar para:", 
+    text: "A placa de regulamentação R-30 obriga pedestre a andar à esquerda. O condutor deve atentar para:", 
     options: ["escolares à direita", "pedestres em circulação à esquerda", "crianças à direita", "pedestres à direita"], 
-    correctAnswer: 1 
+    correctAnswer: 1,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Sinal_R-30.svg/240px-Sinal_R-30.svg.png"
   },
   { 
     id: 96, 
@@ -747,9 +766,10 @@ export const QUESTIONS: Question[] = [
   { 
     id: 107, 
     category: Category.SINALIZACAO, 
-    text: "Placa A-29 alerta para:", 
-    options: ["obras", "alagamento", "riscos de cascalho na via", "pista irregular"], 
-    correctAnswer: 2 
+    text: "Diante da placa A-29, o condutor deve estar alerta devido:", 
+    options: ["às obras", "à possibilidade de alagamento", "ao risco de cascalho na via", "à pista irregular"], 
+    correctAnswer: 2,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Sinal_A-29.svg/240px-Sinal_A-29.svg.png"
   },
   { 
     id: 108, 
@@ -768,16 +788,18 @@ export const QUESTIONS: Question[] = [
   { 
     id: 110, 
     category: Category.SINALIZACAO, 
-    text: "Placa A-19 (Lombada) exige:", 
-    options: ["reduzir pois há depressão", "reduzir pois há lombada", "reduzir pois há parada de ônibus", "manter velocidade"], 
-    correctAnswer: 1 
+    text: "Diante da placa de advertência A-19, o condutor deve saber que à frente:", 
+    options: ["há depressão", "há uma lombada", "há parada de ônibus", "há desnível lateral"], 
+    correctAnswer: 1,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Sinal_A-19.svg/240px-Sinal_A-19.svg.png"
   },
   { 
     id: 111, 
     category: Category.SINALIZACAO, 
-    text: "Placa R-1 (Parada Obrigatória) exige que condutor reduza e:", 
-    options: ["siga sem parar", "pare e acesse com segurança", "pare apenas se houver preferencial", "atravesse devagar"], 
-    correctAnswer: 1 
+    text: "Diante da placa de regulamentação R-1, o condutor deve:", 
+    options: ["seguir sem parar", "parar e acessar com segurança", "parar apenas se houver preferencial", "atravessar devagar"], 
+    correctAnswer: 1,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Sinal_R-1.svg/240px-Sinal_R-1.svg.png"
   },
   { 
     id: 112, 
@@ -803,9 +825,10 @@ export const QUESTIONS: Question[] = [
   { 
     id: 115, 
     category: Category.SINALIZACAO, 
-    text: "Placa A-33a alerta para aproximação de:", 
+    text: "Diante da placa A-33a, o condutor deve redobrar a atenção pois se aproxima de:", 
     options: ["área com escolares e risco de atropelamento", "passagem de pedestres", "área de lazer", "crianças brincando"], 
-    correctAnswer: 0 
+    correctAnswer: 0,
+    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Sinal_A-33a.svg/240px-Sinal_A-33a.svg.png"
   },
   { 
     id: 116, 

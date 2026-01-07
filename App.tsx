@@ -23,7 +23,6 @@ const App: React.FC = () => {
   const [isLoadingExplanation, setIsLoadingExplanation] = useState(false);
   const [hasSavedProgress, setHasSavedProgress] = useState(false);
 
-  // Verifica se existe progresso salvo ao carregar
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
@@ -38,7 +37,6 @@ const App: React.FC = () => {
     }
   }, []);
 
-  // Salva o progresso automaticamente
   useEffect(() => {
     if (gameState === 'quiz') {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(quiz));
@@ -67,8 +65,6 @@ const App: React.FC = () => {
       const parsed = JSON.parse(saved);
       setQuiz(parsed);
       setGameState('quiz');
-      
-      // Verifica se a questão atual já estava respondida (para mostrar o feedback)
       const lastAnswer = parsed.userAnswers[parsed.currentQuestionIndex];
       if (lastAnswer !== null) {
         setSelectedOption(lastAnswer);
@@ -138,16 +134,9 @@ const App: React.FC = () => {
             </div>
             <div>
               <h1 className="text-lg font-bold text-slate-800">Maratona DETRAN-SP</h1>
-              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Simulado Completo 120 Questões</p>
+              <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Simulado PDF Detalhado</p>
             </div>
           </div>
-          {gameState === 'quiz' && (
-            <div className="hidden md:block">
-              <span className="text-xs font-bold text-slate-400 bg-slate-100 px-3 py-1 rounded-full uppercase tracking-tighter">
-                Progresso Salvo no Navegador
-              </span>
-            </div>
-          )}
         </div>
       </header>
 
@@ -159,30 +148,18 @@ const App: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h2 className="text-3xl font-black text-slate-800 mb-4">Desafio Total</h2>
+            <h2 className="text-3xl font-black text-slate-800 mb-4">Início da Prova</h2>
             <p className="text-slate-600 mb-8 max-w-md mx-auto leading-relaxed">
-              Você está prestes a iniciar uma maratona com todas as <strong>{QUESTIONS.length} questões</strong> oficiais. Responda no seu tempo, seu progresso não será perdido.
+              Questões extraídas diretamente do PDF oficial. Total de <strong>{QUESTIONS.length} perguntas</strong> com suporte visual para as placas.
             </p>
-            
-            <div className="grid grid-cols-2 gap-4 mb-10 text-left max-w-md mx-auto">
-              <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                <p className="text-[10px] font-bold text-slate-400 uppercase mb-1 tracking-widest">Tempo</p>
-                <p className="text-sm font-bold text-slate-700">Ilimitado</p>
-              </div>
-              <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                <p className="text-[10px] font-bold text-slate-400 uppercase mb-1 tracking-widest">Meta</p>
-                <p className="text-sm font-bold text-slate-700">84 Acertos (70%)</p>
-              </div>
-            </div>
-
             <div className="flex flex-col gap-3">
               {hasSavedProgress && (
                 <Button size="lg" variant="success" onClick={resumeQuiz} className="py-4 shadow-lg shadow-emerald-100 font-bold">
-                  Continuar Simulado Anterior
+                  Continuar Simulado
                 </Button>
               )}
               <Button size="lg" onClick={startNewQuiz} variant={hasSavedProgress ? 'outline' : 'primary'} className="py-4 font-bold">
-                {hasSavedProgress ? 'Começar do Zero' : 'Iniciar Maratona'}
+                Começar do Zero
               </Button>
             </div>
           </div>
@@ -204,6 +181,18 @@ const App: React.FC = () => {
                 </span>
                 <span className="text-sm font-black text-slate-300">#{currentQuestion.id}</span>
               </div>
+
+              {currentQuestion.imageUrl && (
+                <div className="flex justify-center mb-8 animate-in fade-in duration-700">
+                  <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                    <img 
+                      src={currentQuestion.imageUrl} 
+                      alt="Sinalização de Trânsito" 
+                      className="max-h-40 md:max-h-56 object-contain mix-blend-multiply"
+                    />
+                  </div>
+                </div>
+              )}
               
               <h3 className="text-xl md:text-2xl font-bold text-slate-800 mb-10 leading-snug">
                 {currentQuestion.text}
@@ -212,19 +201,11 @@ const App: React.FC = () => {
               <div className="space-y-3">
                 {currentQuestion.options.map((option, idx) => {
                   let styles = "border-2 border-slate-100 bg-slate-50 hover:bg-slate-100 hover:border-slate-200 text-slate-700";
-                  
-                  if (selectedOption === idx) {
-                    styles = "border-blue-500 bg-blue-50 ring-4 ring-blue-50 text-blue-900 font-semibold";
-                  }
-
+                  if (selectedOption === idx) styles = "border-blue-500 bg-blue-50 ring-4 ring-blue-50 text-blue-900 font-semibold";
                   if (isAnswered) {
-                    if (idx === currentQuestion.correctAnswer) {
-                      styles = "border-emerald-500 bg-emerald-50 ring-4 ring-emerald-50 text-emerald-900 font-bold";
-                    } else if (selectedOption === idx) {
-                      styles = "border-red-500 bg-red-50 ring-4 ring-red-50 text-red-900 font-bold";
-                    } else {
-                      styles = "opacity-40 border-slate-50 bg-slate-50 text-slate-400 grayscale";
-                    }
+                    if (idx === currentQuestion.correctAnswer) styles = "border-emerald-500 bg-emerald-50 ring-4 ring-emerald-50 text-emerald-900 font-bold";
+                    else if (selectedOption === idx) styles = "border-red-500 bg-red-50 ring-4 ring-red-50 text-red-900 font-bold";
+                    else styles = "opacity-40 border-slate-50 bg-slate-50 text-slate-400 grayscale";
                   }
 
                   return (
@@ -249,11 +230,9 @@ const App: React.FC = () => {
                 <div className="mt-8 p-6 bg-amber-50 rounded-2xl border border-amber-100 animate-in fade-in slide-in-from-top-4 duration-500">
                   <div className="flex items-center gap-3 mb-3 text-amber-800 font-black text-xs uppercase tracking-widest">
                     <div className="w-6 h-6 bg-amber-200 rounded-lg flex items-center justify-center">💡</div>
-                    Explicação do Professor IA
+                    Explicação Professor IA
                   </div>
-                  <p className="text-amber-900 text-sm leading-relaxed italic font-medium">
-                    "{explanation}"
-                  </p>
+                  <p className="text-amber-900 text-sm leading-relaxed italic font-medium">"{explanation}"</p>
                 </div>
               )}
 
@@ -263,30 +242,19 @@ const App: React.FC = () => {
                     <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce"></div>
                     <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce [animation-delay:-0.1s]"></div>
                     <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce [animation-delay:-0.2s]"></div>
-                    Consultando Legislação...
+                    Analisando Legislação...
                   </div>
                 </div>
               )}
 
               <div className="mt-12">
                 {!isAnswered ? (
-                  <Button 
-                    fullWidth 
-                    size="lg" 
-                    onClick={submitAnswer} 
-                    disabled={selectedOption === null}
-                    className="py-5 shadow-xl shadow-blue-100 font-black uppercase tracking-widest"
-                  >
+                  <Button fullWidth size="lg" onClick={submitAnswer} disabled={selectedOption === null} className="py-5 shadow-xl shadow-blue-100 font-black uppercase tracking-widest">
                     Confirmar Resposta
                   </Button>
                 ) : (
-                  <Button 
-                    fullWidth 
-                    size="lg" 
-                    onClick={nextQuestion}
-                    className="py-5 shadow-xl shadow-slate-100 font-black uppercase tracking-widest bg-slate-900 hover:bg-black"
-                  >
-                    {quiz.currentQuestionIndex === QUESTIONS.length - 1 ? 'Ver Resultado Final' : 'Próxima Questão'}
+                  <Button fullWidth size="lg" onClick={nextQuestion} className="py-5 shadow-xl shadow-slate-100 font-black uppercase tracking-widest bg-slate-900 hover:bg-black">
+                    {quiz.currentQuestionIndex === QUESTIONS.length - 1 ? 'Ver Resultado' : 'Próxima Questão'}
                   </Button>
                 )}
               </div>
@@ -298,12 +266,11 @@ const App: React.FC = () => {
           <div className="animate-in zoom-in-95 duration-700">
             <div className="bg-white rounded-3xl shadow-2xl p-10 border border-slate-100 text-center relative overflow-hidden">
               <div className={`absolute top-0 left-0 w-full h-2 ${isApproved ? 'bg-emerald-500' : 'bg-amber-500'}`} />
-              
-              <h2 className="text-4xl font-black text-slate-800 mb-8">Maratona Finalizada</h2>
+              <h2 className="text-4xl font-black text-slate-800 mb-8">Resultado</h2>
               
               <div className="flex justify-center mb-10">
-                <div className="relative group">
-                  <div className={`absolute inset-0 blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-1000 ${isApproved ? 'bg-emerald-500' : 'bg-amber-500'}`} />
+                <div className="relative">
+                  <div className={`absolute inset-0 blur-3xl opacity-20 ${isApproved ? 'bg-emerald-500' : 'bg-amber-500'}`} />
                   <svg className="w-48 h-48 transform -rotate-90 relative">
                     <circle cx="96" cy="96" r="80" stroke="currentColor" strokeWidth="16" fill="transparent" className="text-slate-100" />
                     <circle cx="96" cy="96" r="80" stroke="currentColor" strokeWidth="16" fill="transparent"
@@ -314,88 +281,30 @@ const App: React.FC = () => {
                     />
                   </svg>
                   <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <span className="text-5xl font-black text-slate-800 leading-none">
-                      {Math.round((quiz.score.correct / QUESTIONS.length) * 100)}%
-                    </span>
+                    <span className="text-5xl font-black text-slate-800 leading-none">{Math.round((quiz.score.correct / QUESTIONS.length) * 100)}%</span>
                     <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-1">Acertos</span>
                   </div>
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-6 mb-10">
-                <div className="bg-emerald-50 p-6 rounded-3xl border border-emerald-100 shadow-sm">
-                  <span className="text-[10px] font-black text-emerald-600 uppercase block mb-2 tracking-widest">Total de Acertos</span>
-                  <span className="text-4xl font-black text-emerald-700">{quiz.score.correct}</span>
+                <div className="bg-emerald-50 p-6 rounded-3xl border border-emerald-100 shadow-sm text-emerald-700">
+                  <span className="text-[10px] font-black uppercase block mb-2">Acertos</span>
+                  <span className="text-4xl font-black">{quiz.score.correct}</span>
                 </div>
-                <div className="bg-red-50 p-6 rounded-3xl border border-red-100 shadow-sm">
-                  <span className="text-[10px] font-black text-red-600 uppercase block mb-2 tracking-widest">Total de Erros</span>
-                  <span className="text-4xl font-black text-red-700">{quiz.score.wrong}</span>
+                <div className="bg-red-50 p-6 rounded-3xl border border-red-100 shadow-sm text-red-700">
+                  <span className="text-[10px] font-black uppercase block mb-2">Erros</span>
+                  <span className="text-4xl font-black">{quiz.score.wrong}</span>
                 </div>
               </div>
 
-              <div className={`p-8 rounded-3xl mb-10 ${isApproved ? 'bg-emerald-600 text-white shadow-2xl shadow-emerald-200' : 'bg-amber-600 text-white shadow-2xl shadow-amber-200'}`}>
-                <h4 className="text-2xl font-black mb-2 uppercase tracking-tight">
-                  {isApproved ? 'Excelente Piloto!' : 'Continue Estudando'}
-                </h4>
-                <p className="text-sm opacity-90 font-medium">
-                  {isApproved 
-                    ? `Você acertou ${quiz.score.correct} de ${QUESTIONS.length}. Você está mais que pronto para o exame real!` 
-                    : `Você acertou ${quiz.score.correct}. Para passar com 70% você precisava de ${passThreshold}.`}
-                </p>
-              </div>
-
-              <Button variant="outline" size="lg" fullWidth onClick={startNewQuiz} className="py-5 font-black uppercase tracking-widest border-slate-200 text-slate-500 hover:text-slate-800 hover:bg-slate-50">
-                Reiniciar Novo Desafio
+              <Button variant="outline" size="lg" fullWidth onClick={startNewQuiz} className="py-5 font-black uppercase tracking-widest border-slate-200 text-slate-500">
+                Reiniciar Simulado
               </Button>
-            </div>
-
-            <div className="mt-12 mb-20">
-              <h3 className="text-xl font-black text-slate-800 mb-6 px-4">Relatório Detalhado</h3>
-              <div className="space-y-4">
-                {Object.values(Category).map(cat => {
-                  const catQuestions = QUESTIONS.filter(q => q.category === cat);
-                  const catCorrect = catQuestions.reduce((acc, q) => {
-                    const idx = QUESTIONS.findIndex(orig => orig.id === q.id);
-                    return acc + (quiz.userAnswers[idx] === q.correctAnswer ? 1 : 0);
-                  }, 0);
-                  const percentage = Math.round((catCorrect / catQuestions.length) * 100);
-
-                  return (
-                    <div key={cat} className="bg-white p-6 rounded-2xl border border-slate-100 flex items-center justify-between shadow-sm group hover:shadow-md transition-shadow">
-                      <div className="flex-1">
-                        <div className="flex justify-between items-center mb-3">
-                          <span className="text-sm font-black text-slate-700 uppercase tracking-tight">{cat}</span>
-                          <span className="text-xs font-black text-slate-400">{catCorrect} / {catQuestions.length}</span>
-                        </div>
-                        <div className="flex items-center gap-4">
-                          <div className="flex-1 h-3 bg-slate-100 rounded-full overflow-hidden">
-                            <div 
-                              className={`h-full rounded-full transition-all duration-1000 ${percentage >= 70 ? 'bg-emerald-500' : 'bg-amber-500'}`} 
-                              style={{ width: `${percentage}%` }}
-                            />
-                          </div>
-                          <span className={`text-xs font-black w-10 text-right ${percentage >= 70 ? 'text-emerald-600' : 'text-amber-600'}`}>{percentage}%</span>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
             </div>
           </div>
         )}
       </main>
-
-      <footer className="max-w-4xl mx-auto px-4 py-16 text-center border-t border-slate-200 mt-20">
-        <p className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em] mb-4">
-          Simulador Maratona • Banco de Dados DETRAN-SP v2025
-        </p>
-        <div className="flex justify-center gap-4 opacity-50 grayscale hover:grayscale-0 transition-all">
-          <div className="w-8 h-8 bg-blue-100 rounded-lg"></div>
-          <div className="w-8 h-8 bg-blue-200 rounded-lg"></div>
-          <div className="w-8 h-8 bg-blue-300 rounded-lg"></div>
-        </div>
-      </footer>
     </div>
   );
 };
