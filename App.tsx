@@ -4,9 +4,29 @@ import { QUESTIONS } from './data/questions';
 import { QuizState, Category } from './types';
 import { Button } from './components/Button';
 import { ScoreBoard } from './components/ScoreBoard';
+import { EncouragementToast } from './components/EncouragementToast';
 import { getAnswerExplanation } from './services/geminiService';
 
-const STORAGE_KEY = 'detran_maratona_full_v2';
+const STORAGE_KEY = 'detran_maratona_paola_v1';
+
+const PAOLA_MESSAGES_SUCCESS = [
+  "Você é incrível, Paola! Mandou muito bem!",
+  "Arrasou na resposta! Sua inteligência é admirável.",
+  "Paola, você está voando! A CNH já é realidade.",
+  "Que orgulho de você, Paola! Mais um acerto!",
+  "Sua dedicação é inspiradora. Parabéns, Paola!",
+  "Você é fera demais! Continue assim!",
+  "Paola, cada acerto te deixa mais perto da sua conquista!"
+];
+
+const PAOLA_MESSAGES_SUPPORT = [
+  "Não desanima, Paola! Você está aprendendo e evoluindo.",
+  "Tudo bem errar, Paola! O importante é entender o porquê.",
+  "Paola, você é capaz de superar qualquer desafio. Foco na próxima!",
+  "A gente aprende com os erros. Você é muito esforçada!",
+  "Respira fundo, Paola! Você é brilhante e vai conseguir.",
+  "Continue firme, Paola! O conhecimento vem com a prática."
+];
 
 const App: React.FC = () => {
   const [gameState, setGameState] = useState<'start' | 'quiz' | 'result'>('start');
@@ -25,6 +45,11 @@ const App: React.FC = () => {
   
   const [imageLoading, setImageLoading] = useState(true);
   const [imageError, setImageError] = useState(false);
+
+  // States para o pop-up da Paola
+  const [showPaolaToast, setShowPaolaToast] = useState(false);
+  const [paolaMessage, setPaolaMessage] = useState("");
+  const [toastType, setToastType] = useState<'success' | 'info'>('success');
 
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
@@ -94,6 +119,18 @@ const App: React.FC = () => {
     const isCorrect = selectedOption === currentQuestion.correctAnswer;
     setIsAnswered(true);
 
+    // Lógica das mensagens para a Paola
+    if (isCorrect) {
+      const msg = PAOLA_MESSAGES_SUCCESS[Math.floor(Math.random() * PAOLA_MESSAGES_SUCCESS.length)];
+      setPaolaMessage(msg);
+      setToastType('success');
+    } else {
+      const msg = PAOLA_MESSAGES_SUPPORT[Math.floor(Math.random() * PAOLA_MESSAGES_SUPPORT.length)];
+      setPaolaMessage(msg);
+      setToastType('info');
+    }
+    setShowPaolaToast(true);
+
     setQuiz(prev => ({
       ...prev,
       score: {
@@ -134,6 +171,13 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
+      <EncouragementToast 
+        isVisible={showPaolaToast} 
+        message={paolaMessage} 
+        type={toastType}
+        onClose={() => setShowPaolaToast(false)} 
+      />
+
       <header className="bg-white border-b border-slate-200 sticky top-0 z-20">
         <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
@@ -141,7 +185,7 @@ const App: React.FC = () => {
               D
             </div>
             <div>
-              <h1 className="text-lg font-bold text-slate-800">Simulado Master DETRAN</h1>
+              <h1 className="text-lg font-bold text-slate-800">Simulado Paola - Foco na CNH!</h1>
               <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Banco de Dados: {QUESTIONS.length} Questões</p>
             </div>
           </div>
@@ -151,23 +195,21 @@ const App: React.FC = () => {
       <main className="max-w-3xl mx-auto px-4 py-8">
         {gameState === 'start' && (
           <div className="bg-white rounded-3xl shadow-xl p-8 border border-slate-100 text-center animate-in fade-in zoom-in duration-500">
-            <div className="mb-6 inline-block p-5 bg-blue-50 rounded-full">
-              <svg className="w-14 h-14 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+            <div className="mb-6 inline-block p-5 bg-pink-50 rounded-full">
+              <span className="text-4xl">👑</span>
             </div>
-            <h2 className="text-3xl font-black text-slate-800 mb-4">Maratona de Estudos</h2>
-            <p className="text-slate-600 mb-8 max-w-md mx-auto leading-relaxed">
-              Você está prestes a iniciar o simulado completo com <strong>{QUESTIONS.length} perguntas</strong> e suporte visual para todas as placas oficiais.
+            <h2 className="text-3xl font-black text-slate-800 mb-2">Oi, Paola!</h2>
+            <p className="text-slate-600 mb-8 max-w-md mx-auto leading-relaxed font-medium">
+              Preparei este simulado especial para você. São <strong>{QUESTIONS.length} perguntas</strong> para você brilhar na prova!
             </p>
             <div className="flex flex-col gap-3">
               {hasSavedProgress && (
                 <Button size="lg" variant="success" onClick={resumeQuiz} className="py-4 shadow-lg shadow-emerald-100 font-bold">
-                  Continuar Maratona
+                  Continuar seu progresso, Paola!
                 </Button>
               )}
               <Button size="lg" onClick={startNewQuiz} variant={hasSavedProgress ? 'outline' : 'primary'} className="py-4 font-bold">
-                Iniciar Nova Prova
+                Começar do Zero
               </Button>
             </div>
           </div>
@@ -206,7 +248,7 @@ const App: React.FC = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                           </svg>
                         </div>
-                        <p className="text-xs font-black text-slate-400 uppercase">Referência Indisponível</p>
+                        <p className="text-xs font-black text-slate-400 uppercase">Placa Oficial</p>
                       </div>
                     ) : (
                       <img 
@@ -214,16 +256,11 @@ const App: React.FC = () => {
                         alt={currentQuestion.imageDescription || "Sinalização de Trânsito"}
                         referrerPolicy="no-referrer"
                         onLoad={() => setImageLoading(false)}
-                        onError={() => {
-                          console.error("Image load failed:", currentQuestion.imageUrl);
-                          setImageError(true);
-                          setImageLoading(false);
-                        }}
+                        onError={() => setImageError(true)}
                         className={`max-h-52 md:max-h-64 w-auto object-contain transition-all duration-700 ${imageLoading ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}
                       />
                     )}
                   </div>
-                  <p className="mt-4 text-[11px] text-slate-400 font-black uppercase tracking-[0.2em]">Sinalização Oficial</p>
                 </div>
               )}
               
@@ -270,13 +307,8 @@ const App: React.FC = () => {
               )}
 
               {isLoadingExplanation && (
-                <div className="mt-8 flex justify-center py-6">
-                  <div className="flex items-center gap-2 text-blue-500 font-bold text-xs uppercase tracking-widest animate-pulse">
-                    <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce"></div>
-                    <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce [animation-delay:-0.1s]"></div>
-                    <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-bounce [animation-delay:-0.2s]"></div>
-                    Consultando CTB...
-                  </div>
+                <div className="mt-8 flex justify-center py-6 text-blue-500 font-bold text-xs uppercase tracking-widest animate-pulse">
+                  Consultando CTB para você, Paola...
                 </div>
               )}
 
@@ -287,7 +319,7 @@ const App: React.FC = () => {
                   </Button>
                 ) : (
                   <Button fullWidth size="lg" onClick={nextQuestion} className="py-5 shadow-xl shadow-slate-100 font-black uppercase tracking-widest bg-slate-900 hover:bg-black">
-                    {quiz.currentQuestionIndex === QUESTIONS.length - 1 ? 'Ver Resultado' : 'Próxima Questão'}
+                    {quiz.currentQuestionIndex === QUESTIONS.length - 1 ? 'Ver Resultado Final' : 'Próxima Questão'}
                   </Button>
                 )}
               </div>
@@ -298,8 +330,9 @@ const App: React.FC = () => {
         {gameState === 'result' && (
           <div className="animate-in zoom-in-95 duration-700">
             <div className="bg-white rounded-3xl shadow-2xl p-10 border border-slate-100 text-center relative overflow-hidden">
-              <div className={`absolute top-0 left-0 w-full h-2 ${isApproved ? 'bg-emerald-500' : 'bg-amber-500'}`} />
-              <h2 className="text-4xl font-black text-slate-800 mb-8">Desempenho Final</h2>
+              <div className={`absolute top-0 left-0 w-full h-2 ${isApproved ? 'bg-pink-500' : 'bg-amber-500'}`} />
+              <h2 className="text-4xl font-black text-slate-800 mb-2">Fim da Maratona!</h2>
+              <p className="text-pink-600 font-black text-xl mb-8">Parabéns pelo esforço, Paola! ✨</p>
               
               <div className="flex justify-center mb-10">
                 <div className="relative">
@@ -332,7 +365,7 @@ const App: React.FC = () => {
               </div>
 
               <p className="text-slate-500 mb-8 font-medium italic">
-                {isApproved ? "Parabéns! Você atingiu a pontuação mínima necessária para aprovação." : "Atenção: Você precisa de no mínimo 70% para ser aprovado na prova oficial."}
+                {isApproved ? "Paola, você arrasou! Está mais do que preparada para passar." : "Paola, você foi muito bem! Vamos revisar um pouco mais e tentar de novo?"}
               </p>
 
               <Button variant="outline" size="lg" fullWidth onClick={startNewQuiz} className="py-5 font-black uppercase tracking-widest border-slate-200 text-slate-500">
