@@ -2,133 +2,823 @@
 import { Category, Question } from '../types';
 
 export const QUESTIONS: Question[] = [
-  // LEGISLAÇÃO (1-30)
-  { id: 1, category: Category.LEGISLACAO, text: "A Carteira Nacional de Habilitação (CNH) com foto e a Permissão para Dirigir (PPD) são documentos de porte obrigatório:", options: ["Apenas quando o condutor estiver em rodovias federais", "Em original ou cópia autenticada pelo DETRAN", "Somente em original (física ou digital)", "Apenas se o veículo for de categoria C, D ou E"], correctAnswer: 2 },
-  { id: 2, category: Category.LEGISLACAO, text: "O condutor que for pego dirigindo com a validade da CNH vencida há mais de 30 dias comete infração:", options: ["Grave", "Gravíssima", "Média", "Leve"], correctAnswer: 1 },
-  { id: 3, category: Category.LEGISLACAO, text: "A velocidade mínima permitida em uma via de trânsito rápido onde a máxima é de 80 km/h será de:", options: ["30 km/h", "40 km/h", "50 km/h", "60 km/h"], correctAnswer: 1 },
-  { id: 4, category: Category.LEGISLACAO, text: "Onde não existir sinalização regulamentadora, a velocidade máxima nas vias locais será de:", options: ["30 km/h", "40 km/h", "50 km/h", "60 km/h"], correctAnswer: 0 },
-  { id: 5, category: Category.LEGISLACAO, text: "Qual a idade mínima para que uma criança possa ser transportada em motocicletas?", options: ["7 anos", "8 anos", "10 anos", "12 anos"], correctAnswer: 2 },
-  { id: 6, category: Category.LEGISLACAO, text: "As infrações de trânsito são classificadas em:", options: ["Leves, médias, graves e gravíssimas", "Simples, médias e pesadas", "Primeira, segunda e terceira ordem", "Urbanas e rurais"], correctAnswer: 0 },
-  { id: 7, category: Category.LEGISLACAO, text: "A pontuação que acarreta a suspensão do direito de dirigir para quem não possui infração gravíssima é de:", options: ["20 pontos", "30 pontos", "40 pontos", "15 pontos"], correctAnswer: 2 },
-  { id: 8, category: Category.LEGISLACAO, text: "Transitar em marcha ré, salvo na distância necessária para pequenas manobras, é infração:", options: ["Leve", "Média", "Grave", "Gravíssima"], correctAnswer: 2 },
-  { id: 9, category: Category.LEGISLACAO, text: "As luzes de posição (lanternas) devem ser usadas:", options: ["Sempre à noite", "Sob chuva forte ou neblina, se não usar o farol baixo", "Apenas em túneis", "Apenas para indicar conversão"], correctAnswer: 1 },
-  { id: 10, category: Category.LEGISLACAO, text: "O uso do cinto de segurança é obrigatório:", options: ["Apenas para o condutor", "Apenas nos bancos dianteiros", "Em todas as vias do território nacional para condutor e passageiros", "Apenas em rodovias"], correctAnswer: 2 },
-  { id: 11, category: Category.LEGISLACAO, text: "O sinal de braço do condutor com o braço estendido horizontalmente para a esquerda indica:", options: ["Dobrar à direita", "Dobrar à esquerda", "Diminuir a marcha", "Parar o veículo"], correctAnswer: 1 },
-  { id: 12, category: Category.LEGISLACAO, text: "O prazo para o proprietário expedir o novo CRV em caso de transferência é de:", options: ["15 dias", "30 dias", "60 dias", "Imediato"], correctAnswer: 1 },
-  { id: 13, category: Category.LEGISLACAO, text: "Conduzir veículo sem os documentos de porte obrigatório acarreta:", options: ["Multa e retenção do veículo até a apresentação do documento", "Apreensão definitiva do veículo", "Suspensão da CNH", "Advertência verbal apenas"], correctAnswer: 0 },
-  { id: 14, category: Category.LEGISLACAO, text: "A categoria de habilitação 'B' permite conduzir:", options: ["Motos", "Veículos de carga acima de 3.500kg", "Veículos motorizados com peso bruto total até 3.500kg e lotação até 8 passageiros", "Ônibus e micro-ônibus"], correctAnswer: 2 },
-  { id: 15, category: Category.LEGISLACAO, text: "Ao estacionar um veículo em um aclive, o condutor deve:", options: ["Deixar o veículo em ponto morto", "Acionar o freio de estacionamento e engatar em 1ª marcha", "Deixar apenas no freio de mão", "Usar calços de madeira em todas as rodas"], correctAnswer: 1 },
-  { id: 16, category: Category.LEGISLACAO, text: "A sinalização vertical é composta por:", options: ["Placas", "Marcas no pavimento", "Luzes de semáforo", "Gestos de agentes"], correctAnswer: 0 },
-  { id: 17, category: Category.LEGISLACAO, text: "O condutor que dirigir veículo sem possuir CNH comete infração gravíssima com multa multiplicada por:", options: ["2 vezes", "3 vezes", "5 vezes", "10 vezes"], correctAnswer: 1 },
-  { id: 18, category: Category.LEGISLACAO, text: "Ultrapassar pela direita é permitido quando:", options: ["O veículo da frente indicar que vai entrar à esquerda", "O veículo da frente estiver em baixa velocidade", "Houver acostamento", "Estivermos em uma rodovia"], correctAnswer: 0 },
-  { id: 19, category: Category.LEGISLACAO, text: "A placa de sinalização 'PARE' (R-1) é de:", options: ["Advertência", "Indicação", "Regulamentação", "Serviços auxiliares"], correctAnswer: 2 },
-  { id: 20, category: Category.LEGISLACAO, text: "Falsificar ou adulterar documento de habilitação é:", options: ["Infração administrativa apenas", "Crime de trânsito", "Infração leve", "Procedimento permitido em emergências"], correctAnswer: 1 },
-  { id: 21, category: Category.LEGISLACAO, text: "O condutor de veículo destinado à condução de escolares deve ter idade superior a:", options: ["18 anos", "21 anos", "25 anos", "30 anos"], correctAnswer: 1 },
-  { id: 22, category: Category.LEGISLACAO, text: "A distância que o condutor deve manter entre o seu veículo e o que segue à frente é:", options: ["Distância de segmento (segurança)", "Distância de frenagem", "Distância de reação", "Distância de parada total"], correctAnswer: 0 },
-  { id: 23, category: Category.LEGISLACAO, text: "É dever de todo condutor de veículo:", options: ["Buzinar sempre nos cruzamentos", "Dar passagem pela direita quando solicitado", "Guardar distância de segurança lateral e frontal entre o seu veículo e os demais", "Acelerar quando avistar pedestres atravessando"], correctAnswer: 2 },
-  { id: 24, category: Category.LEGISLACAO, text: "O uso de farol alto em vias com iluminação pública é:", options: ["Obrigatório", "Permitido", "Proibido (infração leve)", "Opcional"], correctAnswer: 2 },
-  { id: 25, category: Category.LEGISLACAO, text: "A renovação dos exames para a CNH de condutores com mais de 70 anos deve ser feita a cada:", options: ["1 ano", "2 anos", "3 anos", "5 anos"], correctAnswer: 2 },
-  { id: 26, category: Category.LEGISLACAO, text: "As placas de atrativos turísticos pertencem ao grupo de sinalização de:", options: ["Regulamentação", "Advertência", "Indicação", "Educação"], correctAnswer: 2 },
-  { id: 27, category: Category.LEGISLACAO, text: "O condutor que utiliza o veículo para arremessar água sobre pedestres comete infração:", options: ["Grave", "Média", "Leve", "Não é infração"], correctAnswer: 1 },
-  { id: 28, category: Category.LEGISLACAO, text: "A linha amarela contínua no centro da pista indica:", options: ["Proibição de ultrapassagem para ambos os sentidos", "Permissão de ultrapassagem", "Mão única", "Estacionamento permitido"], correctAnswer: 0 },
-  { id: 29, category: Category.LEGISLACAO, text: "O órgão máximo executivo de trânsito da União é o:", options: ["CONTRAN", "DENATRAN (SENATRAN)", "DETRAN", "CETRAN"], correctAnswer: 1 },
-  { id: 30, category: Category.LEGISLACAO, text: "Abandonar o veículo na via pública após acidente com vítima é:", options: ["Infração grave", "Crime de trânsito", "Obrigatório para segurança", "Permitido se o veículo estiver seguro"], correctAnswer: 1 },
-
-  // DIREÇÃO DEFENSIVA (31-60)
-  { id: 31, category: Category.DIRECAO_DEFENSIVA, text: "O método dos dois segundos serve para calcular:", options: ["A distância de frenagem", "A distância de seguimento segura", "O tempo de reação do condutor", "O tempo de troca de marchas"], correctAnswer: 1 },
-  { id: 32, category: Category.DIRECAO_DEFENSIVA, text: "O condutor que dirige com atenção e antecipação aos riscos pratica a direção:", options: ["Corretiva", "Agressiva", "Preventiva (defensiva)", "Passiva"], correctAnswer: 2 },
-  { id: 33, category: Category.DIRECAO_DEFENSIVA, text: "Sob chuva forte, o fenômeno da aquaplanagem pode ocorrer devido a:", options: ["Alta velocidade e pneus gastos", "Baixa velocidade e pneus novos", "Pista seca", "Uso excessivo de freio motor"], correctAnswer: 0 },
-  { id: 34, category: Category.DIRECAO_DEFENSIVA, text: "A fadiga e o sono ao dirigir provocam:", options: ["Aumento da atenção", "Aumento do tempo de reação (reflexos lentos)", "Melhora na audição", "Maior percepção de perigo"], correctAnswer: 1 },
-  { id: 35, category: Category.DIRECAO_DEFENSIVA, text: "Ao ser ultrapassado, o condutor deve:", options: ["Acelerar", "Manter a velocidade ou reduzi-la levemente para facilitar", "Mudar de faixa imediatamente", "Buzinar para avisar"], correctAnswer: 1 },
-  { id: 36, category: Category.DIRECAO_DEFENSIVA, text: "O uso do celular ao dirigir causa:", options: ["Apenas distração auditiva", "Melhora na coordenação", "Distração cognitiva, visual e motora", "Apenas infração leve"], correctAnswer: 2 },
-  { id: 37, category: Category.DIRECAO_DEFENSIVA, text: "Os cinco elementos básicos da direção defensiva são:", options: ["Velocidade, Freio, Pneu, Óleo e Água", "Conhecimento, Atenção, Previsão, Decisão e Habilidade", "Carro, Moto, Ônibus, Caminhão e Pedestre", "Dia, Noite, Chuva, Vento e Neblina"], correctAnswer: 1 },
-  { id: 38, category: Category.DIRECAO_DEFENSIVA, text: "Em curvas, a força que tende a jogar o veículo para fora da trajetória é a:", options: ["Força centrípeta", "Força centrífuga", "Força de atrito", "Gravidade"], correctAnswer: 1 },
-  { id: 39, category: Category.DIRECAO_DEFENSIVA, text: "Para evitar a colisão com o veículo de trás, o condutor deve:", options: ["Frear bruscamente", "Sinalizar suas intenções e não parar repentinamente", "Andar sempre na faixa da esquerda", "Olhar apenas para a frente"], correctAnswer: 1 },
-  { id: 40, category: Category.DIRECAO_DEFENSIVA, text: "Pneus com profundidade de sulco inferior a 1,6 mm são considerados:", options: ["Ideais para pista seca", "Gastos (carecas) e perigosos", "Regulamentares", "Especiais para corrida"], correctAnswer: 1 },
-  { id: 41, category: Category.DIRECAO_DEFENSIVA, text: "O que fazer ao entrar em uma área de alagamento que cobre metade da roda?", options: ["Engatar a 1ª marcha e manter aceleração constante", "Acelerar ao máximo", "Frear o tempo todo", "Desligar o motor"], correctAnswer: 0 },
-  { id: 42, category: Category.DIRECAO_DEFENSIVA, text: "A visibilidade do condutor é prejudicada por:", options: ["Pára-brisa limpo", "Espelhos regulados", "Cegueira momentânea causada por excesso de luz (ofuscamento)", "Luz solar lateral"], correctAnswer: 2 },
-  { id: 43, category: Category.DIRECAO_DEFENSIVA, text: "O condutor defensivo, ao perceber um pedestre atravessando, deve:", options: ["Buzinar para o pedestre correr", "Dar passagem ao pedestre", "Acelerar para passar antes", "Mudar de faixa sem sinalizar"], correctAnswer: 1 },
-  { id: 44, category: Category.DIRECAO_DEFENSIVA, text: "A verificação das condições de segurança do veículo deve ser feita:", options: ["A cada um ano", "Somente quando quebrar", "Periodicamente pelo próprio condutor", "Apenas pelo mecânico"], correctAnswer: 2 },
-  { id: 45, category: Category.DIRECAO_DEFENSIVA, text: "O uso do cinto de segurança por gestantes é:", options: ["Obrigatório e protege mãe e bebê", "Proibido por lei", "Opcional", "Apenas em trajetos longos"], correctAnswer: 0 },
-  { id: 46, category: Category.DIRECAO_DEFENSIVA, text: "O ponto cego nos espelhos retrovisores é:", options: ["A área onde o reflexo é mais nítido", "A área não visível pelos espelhos que exige atenção redobrada", "O centro do espelho", "Um defeito de fabricação"], correctAnswer: 1 },
-  { id: 47, category: Category.DIRECAO_DEFENSIVA, text: "Ao dirigir em rodovias, o condutor deve evitar o 'efeito túnel', que é:", options: ["Passar por túneis escuros", "A perda de visão periférica devido ao aumento da velocidade", "O cansaço visual", "O excesso de poluição"], correctAnswer: 1 },
-  { id: 48, category: Category.DIRECAO_DEFENSIVA, text: "Dirigir sob efeito de álcool diminui:", options: ["O tempo de reação", "A capacidade de julgamento e reflexos", "O risco de acidentes", "O cansaço"], correctAnswer: 1 },
-  { id: 49, category: Category.DIRECAO_DEFENSIVA, text: "Qual a melhor postura do condutor ao volante?", options: ["Braços totalmente esticados", "Braços levemente dobrados e mãos na posição '9h15'", "Uma mão só no volante", "Corpo inclinado para trás"], correctAnswer: 1 },
-  { id: 50, category: Category.DIRECAO_DEFENSIVA, text: "A inspeção veicular obrigatória serve para:", options: ["Aumentar a potência do motor", "Garantir condições de segurança e controle de emissões", "Cobrar taxas extras", "Melhorar a estética"], correctAnswer: 1 },
-  { id: 51, category: Category.DIRECAO_DEFENSIVA, text: "Em caso de neblina intensa, o condutor deve:", options: ["Ligar o farol alto", "Parar no acostamento com o pisca-alerta ligado", "Reduzir a velocidade e procurar um local seguro fora da pista para parar", "Aumentar a velocidade para sair logo da neblina"], correctAnswer: 2 },
-  { id: 52, category: Category.DIRECAO_DEFENSIVA, text: "A distância de reação é aquela que o veículo percorre desde:", options: ["O acionamento do freio até a parada", "A percepção do perigo até o acionamento do freio", "A percepção do perigo até a parada total", "O início da manobra até o fim"], correctAnswer: 1 },
-  { id: 53, category: Category.DIRECAO_DEFENSIVA, text: "O que é 'Direção Corretiva'?", options: ["Antecipar os erros dos outros", "Corrigir uma situação de perigo que já aconteceu", "Fazer manutenção no carro", "Seguir as leis de trânsito"], correctAnswer: 1 },
-  { id: 54, category: Category.DIRECAO_DEFENSIVA, text: "Um condutor habilitado na categoria A deve saber que o capacete deve ter:", options: ["Apenas viseira", "Selo do INMETRO e estar devidamente afivelado", "Cor brilhante", "Tamanho único"], correctAnswer: 1 },
-  { id: 55, category: Category.DIRECAO_DEFENSIVA, text: "Ao trafegar em trecho com vento lateral forte, o condutor deve:", options: ["Fechar todos os vidros e acelerar", "Abrir levemente os vidros e reduzir a velocidade", "Segurar o volante com uma mão apenas", "Frear bruscamente"], correctAnswer: 1 },
-  { id: 56, category: Category.DIRECAO_DEFENSIVA, text: "A principal causa de acidentes nas rodovias é:", options: ["Falha mecânica", "Condições da pista", "Falha humana (imprudência, imperícia, negligência)", "Falta de sinalização"], correctAnswer: 2 },
-  { id: 57, category: Category.DIRECAO_DEFENSIVA, text: "O 'aquaplaning' é causado principalmente por:", options: ["Óleo na pista", "Excesso de água e velocidade elevada", "Curvas acentuadas", "Falta de iluminação"], correctAnswer: 1 },
-  { id: 58, category: Category.DIRECAO_DEFENSIVA, text: "Em um cruzamento, o condutor deve sempre:", options: ["Acelerar para passar logo", "Reduzir a velocidade e observar", "Buzinar insistentemente", "Confiar que os outros vão parar"], correctAnswer: 1 },
-  { id: 59, category: Category.DIRECAO_DEFENSIVA, text: "A utilização de luzes de emergência (pisca-alerta) com o veículo em movimento é permitida:", options: ["Em situações de emergência ou quando a sinalização exigir", "Sempre que estiver com pressa", "Para indicar parada em local proibido", "Sob chuva leve"], correctAnswer: 0 },
-  { id: 60, category: Category.DIRECAO_DEFENSIVA, text: "A ergonomia no veículo serve para:", options: ["Aumentar o consumo", "Proporcionar conforto e segurança ao condutor", "Deixar o painel bonito", "Reduzir o peso do carro"], correctAnswer: 1 },
-
-  // PRIMEIROS SOCORROS (61-80)
-  { id: 61, category: Category.PRIMEIROS_SOCORROS, text: "A primeira etapa básica de primeiros socorros em um acidente é:", options: ["Remover as vítimas", "Sinalizar o local e acionar o socorro", "Tentar ressuscitação", "Limpar a pista"], correctAnswer: 1 },
-  { id: 62, category: Category.PRIMEIROS_SOCORROS, text: "Em caso de acidente com vítima presa nas ferragens, o socorrista leigo deve:", options: ["Tentar retirá-la imediatamente", "Aguardar o resgate especializado (Corpo de Bombeiros)", "Dar analgésicos", "Virar a vítima"], correctAnswer: 1 },
-  { id: 63, category: Category.PRIMEIROS_SOCORROS, text: "Não se deve dar líquidos a uma vítima consciente de acidente porque:", options: ["Ela pode se engasgar ou aspirar o líquido para os pulmões", "Causa sede", "Aumenta a dor", "Não tem utilidade"], correctAnswer: 0 },
-  { id: 64, category: Category.PRIMEIROS_SOCORROS, text: "A vítima de acidente que apresenta sangramento deve:", options: ["Receber torniquete imediatamente", "Ter o local comprimido com um pano limpo", "Ser lavada com álcool", "Ser deixada sangrando"], correctAnswer: 1 },
-  { id: 65, category: Category.PRIMEIROS_SOCORROS, text: "O número do telefone do SAMU é:", options: ["190", "192", "193", "153"], correctAnswer: 1 },
-  { id: 66, category: Category.PRIMEIROS_SOCORROS, text: "O que deve be verificado primeiro em uma vítima inconsciente?", options: ["Se tem documentos", "A respiração e os batimentos cardíacos", "Se as pernas estão quebradas", "A cor dos olhos"], correctAnswer: 1 },
-  { id: 67, category: Category.PRIMEIROS_SOCORROS, text: "Ao sinalizar um acidente à noite, o socorrista deve usar:", options: ["Lanterna apenas", "Triângulo, galhos e luzes do próprio veículo", "Fogo no chão", "Nada, para não distrair"], correctAnswer: 1 },
-  { id: 68, category: Category.PRIMEIROS_SOCORROS, text: "Vítimas de queimaduras de 2º grau apresentam:", options: ["Apenas pele vermelha", "Bolhas e dor intensa", "Pele carbonizada", "Falta de sensibilidade"], correctAnswer: 1 },
-  { id: 69, category: Category.PRIMEIROS_SOCORROS, text: "Em caso de convulsão, deve-se:", options: ["Segurar a língua da vítima", "Protegê-la de quedas e pancadas na cabeça", "Dar água gelada", "Sacudir a vítima"], correctAnswer: 1 },
-  { id: 70, category: Category.PRIMEIROS_SOCORROS, text: "A omissão de socorro em acidentes é:", options: ["Permitida se houver outras pessoas", "Crime previsto no Código Penal e no CTB", "Opcional para quem não causou o acidente", "Infração leve"], correctAnswer: 1 },
-  { id: 71, category: Category.PRIMEIROS_SOCORROS, text: "Qual a distância ideal para colocar o triângulo em via de velocidade de 100km/h com tempo bom?", options: ["30 metros", "100 metros (ou passos)", "10 metros", "500 metros"], correctAnswer: 1 },
-  { id: 72, category: Category.PRIMEIROS_SOCORROS, text: "Se a vítima estiver com um objeto encravado no corpo, você deve:", options: ["Retirar o objeto", "Não retirar e tentar imobilizá-lo para não mover", "Lavar com água", "Empurrar mais fundo"], correctAnswer: 1 },
-  { id: 73, category: Category.PRIMEIROS_SOCORROS, text: "O estado de choque pode ser identificado por:", options: ["Fome excessiva", "Pele pálida, fria, pulso fraco e rápido", "Euforia", "Pele muito quente"], correctAnswer: 1 },
-  { id: 74, category: Category.PRIMEIROS_SOCORROS, text: "Ao socorrer um motociclista caído, você deve:", options: ["Retirar o capacete para ele respirar", "Não retirar o capacete", "Sentar o motociclista", "Retirar as botas"], correctAnswer: 1 },
-  { id: 75, category: Category.PRIMEIROS_SOCORROS, text: "Para evitar contaminações ao prestar socorro, deve-se:", options: ["Lavar as mãos depois", "Usar luvas de proteção ou sacos plásticos", "Não tocar na vítima", "Usar apenas pano seco"], correctAnswer: 1 },
-  { id: 76, category: Category.PRIMEIROS_SOCORROS, text: "Em caso de fratura exposta:", options: ["Colocar o osso no lugar", "Cobrir com gaze ou pano limpo sem apertar", "Passar pomada", "Lavar com sabão"], correctAnswer: 1 },
-  { id: 77, category: Category.PRIMEIROS_SOCORROS, text: "Vítimas com suspeita de lesão na coluna cervical devem:", options: ["Ser carregadas no colo", "Ser mantidas imóveis até o resgate", "Sentar-se no banco do carro", "Fazer exercícios de pescoço"], correctAnswer: 1 },
-  { id: 78, category: Category.PRIMEIROS_SOCORROS, text: "O que significa a sigla ABC da vida?", options: ["Atenção, Bondade e Cuidado", "Vias aéreas, Respiração e Circulação (em inglês)", "Andar, Beber e Comer", "Acelerar, Brecar e Correr"], correctAnswer: 1 },
-  { id: 79, category: Category.PRIMEIROS_SOCORROS, text: "O que fazer em caso de desmaio?", options: ["Dar álcool para cheirar", "Deitar a vítima de costas com as pernas elevadas", "Jogar água fria no rosto", "Fazer a vítima ficar de pé"], correctAnswer: 1 },
-  { id: 80, category: Category.PRIMEIROS_SOCORROS, text: "Qual a principal finalidade dos primeiros socorros?", options: ["Curar a vítima", "Substituir o médico", "Manter a vida e evitar o agravamento das lesões até o socorro chegar", "Evitar processos judiciais"], correctAnswer: 2 },
-
-  // MEIO AMBIENTE E CIDADANIA (81-100)
-  { id: 81, category: Category.MEIO_AMBIENTE, text: "O principal responsável pela poluição sonora nas cidades é:", options: ["As fábricas", "O trânsito de veículos motorizados", "Os animais", "A chuva"], correctAnswer: 1 },
-  { id: 82, category: Category.MEIO_AMBIENTE, text: "O uso do catalisador no sistema de escapamento serve para:", options: ["Aumentar o barulho", "Reduzir a emissão de gases tóxicos", "Aumentar a potência", "Economizar combustível"], correctAnswer: 1 },
-  { id: 83, category: Category.MEIO_AMBIENTE, text: "Jogar lixo na via pública é uma atitude que:", options: ["Ajuda na limpeza", "Prejudica o meio ambiente e pode causar acidentes", "É permitida por lei", "Apenas deixa a cidade feia"], correctAnswer: 1 },
-  { id: 84, category: Category.MEIO_AMBIENTE, text: "O descarte de óleo de motor usado deve ser feito:", options: ["No ralo da pia", "Em terrenos baldios", "Em locais especializados para reciclagem ou postos de gasolina", "No lixo doméstico"], correctAnswer: 2 },
-  { id: 85, category: Category.MEIO_AMBIENTE, text: "Cidadania no trânsito significa:", options: ["Dirigir o mais rápido possível", "Respeitar os direitos dos outros e as leis de trânsito", "Ignorar pedestres", "Cuidar apenas do próprio veículo"], correctAnswer: 1 },
-  { id: 86, category: Category.MEIO_AMBIENTE, text: "A poluição atmosférica causada pelos veículos pode causar:", options: ["Melhora na respiração", "Doenças respiratórias e irritação nos olhos", "Aumento da visibilidade", "Nenhuma das anteriores"], correctAnswer: 1 },
-  { id: 87, category: Category.MEIO_AMBIENTE, text: "O gás que não tem cheiro nem cor e que é letal quando inalado em locais fechados é o:", options: ["Oxigênio", "Monóxido de Carbono", "Dióxido de Carbono", "Nitrogênio"], correctAnswer: 1 },
-  { id: 88, category: Category.MEIO_AMBIENTE, text: "Qual destes materiais demora mais tempo para se decompor na natureza?", options: ["Papel", "Vidro", "Restos de comida", "Madeira"], correctAnswer: 1 },
-  { id: 89, category: Category.MEIO_AMBIENTE, text: "Para reduzir a poluição, o condutor deve manter o motor:", options: ["Desregulado", "Sempre ligado", "Bem regulado e com manutenção em dia", "Sem filtro de ar"], correctAnswer: 2 },
-  { id: 90, category: Category.MEIO_AMBIENTE, text: "A educação no trânsito deve ser:", options: ["Apenas para condutores", "Apenas para crianças", "Contínua e para todos os usuários da via", "Facultativa"], correctAnswer: 2 },
-  { id: 91, category: Category.MEIO_AMBIENTE, text: "O uso de som alto em veículos em desacordo com as normas do CONTRAN é infração:", options: ["Leve", "Média", "Grave", "Gravíssima"], correctAnswer: 2 },
-  { id: 92, category: Category.MEIO_AMBIENTE, text: "A preservação do meio ambiente é dever de:", options: ["Apenas do governo", "Apenas dos motoristas", "De toda a coletividade", "De ninguém"], correctAnswer: 2 },
-  { id: 93, category: Category.MEIO_AMBIENTE, text: "Veículos que utilizam GNV (Gás Natural Veicular) são considerados:", options: ["Mais poluentes que a gasolina", "Menos poluentes que a gasolina e diesel", "Igualmente poluentes", "Proibidos"], correctAnswer: 1 },
-  { id: 94, category: Category.MEIO_AMBIENTE, text: "A erosão nas margens das rodovias é causada principalmente por:", options: ["Falta de asfalto", "Falta de vegetação e drenagem inadequada", "Excesso de veículos", "Vento"], correctAnswer: 1 },
-  { id: 95, category: Category.MEIO_AMBIENTE, text: "O condutor que cede a passagem para outro condutor demonstra:", options: ["Inabilidade", "Cortesia e cidadania", "Medo", "Falta de pressa"], correctAnswer: 1 },
-  { id: 96, category: Category.MEIO_AMBIENTE, text: "A poluição visual ocorre quando:", options: ["Há excesso de luz solar", "Há excesso de placas, outdoors e anúncios que distraem o condutor", "O motor solta fumaça preta", "A pista está suja"], correctAnswer: 1 },
-  { id: 97, category: Category.MEIO_AMBIENTE, text: "O desenvolvimento sustentável busca:", options: ["Acabar com o trânsito", "Equilibrar o crescimento econômico com a proteção ambiental", "Proibir o uso de carros", "Aumentar o consumo de petróleo"], correctAnswer: 1 },
-  { id: 98, category: Category.MEIO_AMBIENTE, text: "O que o condutor deve fazer com restos de cigarro?", options: ["Jogar pela janela", "Apagar e descartar em local adequado (cinzeiro do carro ou lixo)", "Jogar no acostamento", "Escondê-los sob o banco"], correctAnswer: 1 },
-  { id: 99, category: Category.MEIO_AMBIENTE, text: "A buzina deve ser usada de forma:", options: ["Prolongada e sucessiva", "Breve e apenas para advertência", "Como saudação", "Entre 22h e 6h"], correctAnswer: 1 },
-  { id: 100, category: Category.MEIO_AMBIENTE, text: "Cuidar da limpeza da via é obrigação de:", options: ["Apenas da prefeitura", "De todos os cidadãos", "Apenas dos pedestres", "De ninguém"], correctAnswer: 1 },
-
-  // NOÇÕES DE MECÂNICA (101-120)
-  { id: 101, category: Category.MECANICA, text: "A função do sistema de arrefecimento é:", options: ["Aumentar a velocidade", "Manter a temperatura ideal de funcionamento do motor", "Lubrificar as peças", "Gerar energia"], correctAnswer: 1 },
-  { id: 102, category: Category.MECANICA, text: "O componente que fornece energia para a partida e mantém os sistemas elétricos ligados com o motor parado é:", options: ["O alternador", "A bateria", "A bobina", "As velas"], correctAnswer: 1 },
-  { id: 103, category: Category.MECANICA, text: "O sistema de freios ABS serve para:", options: ["Parar o carro instantaneamente", "Evitar o travamento das rodas em frenagens bruscas", "Diminuir o desgaste dos pneus", "Aumentar o ruído"], correctAnswer: 1 },
-  { id: 104, category: Category.MECANICA, text: "A verificação do nível de óleo do motor deve ser feita:", options: ["Com o motor ligado", "Com o motor quente", "Com o motor frio e em terreno plano", "A cada 5 anos"], correctAnswer: 2 },
-  { id: 105, category: Category.MECANICA, text: "Fumaça branca saindo pelo escapamento pode indicar:", options: ["Queima de óleo", "Queima de junta do cabeçote (água no motor)", "Combustível de alta qualidade", "Motor frio apenas"], correctAnswer: 1 },
-  { id: 106, category: Category.MECANICA, text: "O painel de instrumentos serve para:", options: ["Decorar o carro", "Informar as condições de funcionamento do veículo", "Guardar documentos", "Controlar o som"], correctAnswer: 1 },
-  { id: 107, category: Category.MECANICA, text: "A luz de alerta vermelha com o desenho de uma almotolia (bule) indica problema no sistema de:", options: ["Freio", "Lubrificação (óleo)", "Carga (bateria)", "Temperatura"], correctAnswer: 1 },
-  { id: 108, category: Category.MECANICA, text: "O componente responsável por gerar a centelha elétrica nos motores a gasolina/flex é:", options: ["O alternador", "A vela de ignição", "O carburador", "O pistão"], correctAnswer: 1 },
-  { id: 109, category: Category.MECANICA, text: "A finalidade da suspensão é:", options: ["Aumentar a velocidade", "Absorver os impactos e manter a estabilidade", "Frear o carro", "Economizar combustível"], correctAnswer: 1 },
-  { id: 110, category: Category.MECANICA, text: "O que deve ser feito se a luz da bateria acender com o motor funcionando?", options: ["Continuar dirigindo normalmente", "Parar e verificar o sistema de carga (alternador/correia)", "Aumentar a velocidade", "Ligar todos os faróis"], correctAnswer: 1 },
-  { id: 111, category: Category.MECANICA, text: "O alinhamento das rodas serve para:", options: ["Deixar o pneu bonito", "Evitar o desgaste irregular dos pneus e manter a trajetória", "Aumentar a potência", "Diminuir o barulho"], correctAnswer: 1 },
-  { id: 112, category: Category.MECANICA, text: "Os pneus devem ser calibrados:", options: ["Somente quando estiverem visivelmente baixos", "Periodicamente, preferencialmente com eles frios", "A cada um ano", "Com pressão máxima permitida sempre"], correctAnswer: 1 },
-  { id: 113, category: Category.MECANICA, text: "A função da embreagem é:", options: ["Frear o veículo", "Acoplar e desacoplar o motor da transmissão", "Aumentar o torque", "Controlar a direção"], correctAnswer: 1 },
-  { id: 114, category: Category.MECANICA, text: "O sistema de escape serve para:", options: ["Fazer barulho", "Eliminar os gases da combustão e reduzir ruídos", "Arrefecer o motor", "Lubrificar"], correctAnswer: 1 },
-  { id: 115, category: Category.MECANICA, text: "Barulho metálico ao frear pode indicar:", options: ["Pastilhas de freio gastas", "Pneu furado", "Falta de óleo no motor", "Motor quente"], correctAnswer: 0 },
-  { id: 116, category: Category.MECANICA, text: "A quilometragem percorrida pelo veículo é indicada pelo:", options: ["Velocímetro", "Odômetro", "Tacômetro", "Manômetro"], correctAnswer: 1 },
-  { id: 117, category: Category.MECANICA, text: "Qual a função do catalisador?", options: ["Filtrar o ar", "Transformar gases tóxicos em menos nocivos", "Aumentar o consumo", "Esfriar o motor"], correctAnswer: 1 },
-  { id: 118, category: Category.MECANICA, text: "A luz de alerta do freio acesa com o freio de mão solto indica:", options: ["Problema no motor", "Baixo nível de fluido de freio ou falha no sistema", "Pneu murcho", "Farol queimado"], correctAnswer: 1 },
-  { id: 119, category: Category.MECANICA, text: "A correia dentada deve ser trocada:", options: ["Somente quando quebrar", "De acordo com a quilometragem recomendada pelo fabricante", "A cada 10 anos", "Nunca"], correctAnswer: 1 },
-  { id: 120, category: Category.MECANICA, text: "O fluido de freio deve ser:", options: ["Completado com água", "Verificado e trocado conforme recomendação técnica", "Ignorado", "Usado apenas em emergências"], correctAnswer: 1 }
+  { 
+    id: 1, 
+    category: Category.MECANICA, 
+    text: "O controle da temperatura de um motor é realizado pelo sistema de:", 
+    options: ["resfriamento ou arrefecimento", "carburação e ventilação forçada", "ventilação forçada e freio", "velas e ventilação circulante"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 2, 
+    category: Category.MEIO_AMBIENTE, 
+    text: "Os fatores que interferem positivamente para que o trânsito seja humano e seguro são:", 
+    options: ["educação, habilidades, atenção, cooperação e solidariedade", "individualismo, habilidades, atenção, cooperação e solidariedade", "educação, egoísmo, atenção, cooperação e solidariedade", "educação, habilidades, displicência, cooperação e solidariedade"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 3, 
+    category: Category.LEGISLACAO, 
+    text: "A velocidade máxima permitida em rodovias de pista dupla, nas quais não exista sinalização regulamentadora, para automóveis, camionetas e motocicletas, é de:", 
+    options: ["110 km/h", "80 km/h", "90 km/h", "60 km/h"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 4, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "'Pontos cegos' são regiões da via em que veículos podem ficar escondidos momentaneamente do campo de visão dos espelhos. O procedimento que ajuda a minimizar esse problema é o ajuste:", 
+    options: ["do espelho externo, apenas", "dos espelhos externos e internos para maior campo de visão traseira e lateral", "do espelho interno, apenas", "do espelho interno voltado para a lateral esquerda"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 5, 
+    category: Category.SINALIZACAO, 
+    text: "A placa de regulamentação R-39 indica que a área, via ou faixa:", 
+    options: ["impede a circulação de caminhões e furgões", "se destina à circulação exclusiva de caminhões do tipo furgão", "se destina, exclusivamente, para a circulação de caminhões", "se destina à circulação de veículos de transporte de produtos perecíveis"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 6, 
+    category: Category.SINALIZACAO, 
+    text: "Diante da placa de regulamentação R-4a (Proibido virar à esquerda), qual deve ser a ação do condutor?", 
+    options: ["deve virar à esquerda", "não deve virar à esquerda", "não deve virar à direita", "deve virar à direita"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 7, 
+    category: Category.PRIMEIROS_SOCORROS, 
+    text: "Ao se procurar desobstruir as vias aéreas de uma vítima de acidente, não se deve movimentar sua cabeça, pois poderá ocorrer:", 
+    options: ["fratura dos membros inferiores", "lesão na coluna", "traumatismo craniano", "fratura da bacia"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 8, 
+    category: Category.LEGISLACAO, 
+    text: "Os requisitos necessários, dentre outros, para obter a Carteira Nacional de Habilitação (CNH) são:", 
+    options: ["ter concluído o Ensino Médio", "ter concluído o Ensino Fundamental", "saber ler e escrever", "estar matriculado no Ensino Fundamental"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 9, 
+    category: Category.LEGISLACAO, 
+    text: "A validade da Permissão para Dirigir (PPD) é de:", 
+    options: ["seis meses", "dois anos", "um ano", "três meses"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 10, 
+    category: Category.SINALIZACAO, 
+    text: "A linha simples contínua de divisão de fluxo, na cor amarela, dividindo a via em duas mãos direcionais indica que:", 
+    options: ["a ultrapassagem é permitida", "os deslocamentos laterais são permitidos", "a ultrapassagem e os deslocamentos laterais são proibidos", "a ultrapassagem e os deslocamentos laterais são permitidos"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 11, 
+    category: Category.LEGISLACAO, 
+    text: "Quando o motorista estacionar junto de hidrantes de incêndio devidamente identificados, terá como medida administrativa:", 
+    options: ["remoção do veículo", "recolhimento da CNH", "retenção do veículo", "recolhimento do CRLV"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 12, 
+    category: Category.MECANICA, 
+    text: "Para que os cilindros do motor realizem o ciclo de funcionamento, é necessário que ocorra:", 
+    options: ["o fornecimento de energia mecânica pela bateria", "a queima do óleo nos cilindros", "o funcionamento das válvulas de admissão e de escape", "o funcionamento da ignição eletrônica e do carburador"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 13, 
+    category: Category.SINALIZACAO, 
+    text: "Diante da placa de regulamentação R-6c (Proibido parar e estacionar), qual deve ser a ação do condutor?", 
+    options: ["pode colocar o veículo para operações de carga e descarga", "pode colocar o veículo para embarque e desembarque", "pode colocar o veículo aos sábados, domingos e feriados", "em nenhuma hipótese pode parar ou estacionar o veículo na extensão indicada"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 14, 
+    category: Category.LEGISLACAO, 
+    text: "Estacionar o veículo no passeio (calçada) ou sobre a faixa destinada a pedestres é considerada infração:", 
+    options: ["leve", "gravíssima", "média", "grave"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 15, 
+    category: Category.MECANICA, 
+    text: "A estabilidade de um veículo nas retas e curvas é garantida pela manutenção dos sistemas:", 
+    options: ["de freios e de rodagem", "de suspensão e de transmissão", "de transmissão e de direção", "de direção e de suspensão"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 16, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Chuva e freios deficientes são condições adversas relacionadas, respectivamente, com:", 
+    options: ["via e veículo", "via e condutor", "clima e condutor", "clima e/ou ambiente e veículo"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 17, 
+    category: Category.MEIO_AMBIENTE, 
+    text: "A convivência social no trânsito é facilitada se o condutor:", 
+    options: ["demonstrar agilidade no manuseio dos equipamentos", "conhecer como funciona o motor do veículo", "entrar em atrito com outros condutores se julgar ter a razão", "conhecer e cumprir as regras de circulação e de conduta"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 18, 
+    category: Category.PRIMEIROS_SOCORROS, 
+    text: "Ao solicitar resgate para atender vítimas de um acidente, deve-se:", 
+    options: ["informar a localização e liberar vias aéreas da vítima", "isolar a área e fazer mutirão com outros condutores", "informar o tipo de acidente e retirar a vítima imediatamente", "informar identificação do solicitante, localização, estado das vítimas e tipo de acidente"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 19, 
+    category: Category.MECANICA, 
+    text: "No sistema de arrefecimento à água do motor, os componentes básicos são:", 
+    options: ["válvula termostática, reservatório e alternador", "termômetro, radiador, água com solução e bomba de expansão", "bomba-d'água, câmaras de resfriamento e correia de ventilação", "radiador, bomba-d'água e depósito de expansão do radiador"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 20, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Situações de risco que reduzem a aderência entre pneus e a pista dificultando frenagens são:", 
+    options: ["rodas trincadas e suspensão deficiente", "neblina densa e fumaça de queimadas", "depressões e lombadas no pavimento", "barro em estradas de terra e lâmina de água sobre a pista"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 21, 
+    category: Category.LEGISLACAO, 
+    text: "As vias rurais abertas à circulação de veículos classificam-se em:", 
+    options: ["via de trânsito rápido e arterial", "via arterial, coletora e local", "rodovias e estradas", "via de trânsito rápido, arterial, coletora, local, rodovias e estradas"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 22, 
+    category: Category.PRIMEIROS_SOCORROS, 
+    text: "As três regras fundamentais de primeiros socorros são:", 
+    options: ["tranquilizar o acidentado e fazer massagem local", "aquecer o acidentado com bebida quente", "afastar curiosos, telefonar para resgate e oferecer água", "não entrar em pânico, pensar nas condutas e avaliar riscos para o acidentado"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 23, 
+    category: Category.LEGISLACAO, 
+    text: "O candidato à habilitação deverá submeter-se a exames na seguinte ordem:", 
+    options: ["aptidão física e mental; escrito; e de direção veicular", "escrito; aptidão física e mental; e de direção veicular", "de direção veicular; aptidão física e mental; e escrito", "aptidão física e mental; de direção veicular e escrito"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 24, 
+    category: Category.PRIMEIROS_SOCORROS, 
+    text: "Um condutor pode agravar o estado de saúde da vítima de acidente se:", 
+    options: ["não retirar o capacete de um motociclista", "soltar o cinto de segurança da vítima presa ao veículo", "prestar o maior número de informações à equipe de emergência", "oferecer alimentos ou bebidas para os acidentados"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 25, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Em curvas com sobrelevação negativa (inclinação para fora), a redução da velocidade evita o risco de:", 
+    options: ["derrapagem por perda total de aderência", "perda total do sistema de freios", "estouro do pneu traseiro por esforço", "deslocamento do veículo para a contramão devido à força centrífuga"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 26, 
+    category: Category.SINALIZACAO, 
+    text: "Diante da placa R-25d, qual deve ser a interpretação do condutor quanto ao sentido de circulação?", 
+    options: ["é proibido seguir em frente ou à direita", "é obrigatório seguir em frente ou à esquerda", "é obrigatório seguir à esquerda", "é obrigatório seguir em frente ou à direita"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 27, 
+    category: Category.MECANICA, 
+    text: "Sobre o estado dos freios e sua relação com a segurança, afirma-se que:", 
+    options: ["freios em bom estado eliminam a aquaplanagem", "não é necessário descer vias em declive engrenado", "boa conservação elimina necessidade de manter distância", "quanto mais eficientes forem os freios, mais segurança haverá nas frenagens"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 28, 
+    category: Category.SINALIZACAO, 
+    text: "Diante da placa de regulamentação R-5a (Proibido retornar à esquerda), qual deve ser a ação do condutor?", 
+    options: ["deve retornar na via", "não deve virar à direita", "deve virar à esquerda na via", "não deve retornar na via"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 29, 
+    category: Category.LEGISLACAO, 
+    text: "Transitar pela contramão em vias de sentido único é uma infração:", 
+    options: ["média", "grave", "leve", "gravíssima"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 30, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "A baixa calibragem dos pneus:", 
+    options: ["reduz sua vida útil", "aumenta a capacidade de frenagem", "favorece a estabilidade em curvas", "aumenta sua vida útil"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 31, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Entende-se por 'condições adversas':", 
+    options: ["situações inadequadas geradas pelas autoridades", "condições pessoais do condutor ou fora do seu controle que podem ser causa de acidentes", "riscos totalmente fora do controle do condutor", "situações normais que por distração geram risco"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 32, 
+    category: Category.SINALIZACAO, 
+    text: "Diante da placa de advertência A-21a, o condutor deve estar alerta:", 
+    options: ["ao estreitamento da pista à esquerda", "ao estreitamento da pista ao centro", "à ponte estreita na pista", "ao alargamento da pista à esquerda"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 33, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "A visibilidade do condutor é mais reduzida ao dirigir:", 
+    options: ["em túnel com iluminação pública", "em via urbana iluminada", "à noite, com chuva, garoa ou neblina", "em dia claro com céu azul"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 34, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Sono e vias em véspera de feriados prolongados são classificados como condições adversas de:", 
+    options: ["condutor e trânsito", "tempo e condutor", "condutor e via", "via e trânsito"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 35, 
+    category: Category.LEGISLACAO, 
+    text: "O CTB estabelece regras para todo o território nacional para:", 
+    options: ["apenas rodovias e estradas federais", "ruas, avenidas, logradouros, rodovias, estradas, praias e vias internas de condomínios", "apenas ruas e avenidas urbanas", "vias estaduais e municipais somente"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 36, 
+    category: Category.LEGISLACAO, 
+    text: "A via que se caracteriza por interseções em nível não semaforizadas, destinada ao acesso local, é:", 
+    options: ["via arterial", "via coletora", "via local", "via de trânsito rápido"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 37, 
+    category: Category.SINALIZACAO, 
+    text: "A placa de regulamentação R-24b indica:", 
+    options: ["início de trecho em declive", "passagem obrigatória à direita", "sentido proibido", "conversão à direita"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 38, 
+    category: Category.SINALIZACAO, 
+    text: "A placa de advertência A-13a alerta para risco de acidente relacionado a:", 
+    options: ["confluência com via lateral à esquerda", "cruzamento movimentado", "passagem de mão única para dupla", "confluência lateral à direita"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 39, 
+    category: Category.MECANICA, 
+    text: "A velocidade instantânea desenvolvida pelo veículo é indicada no painel pelo:", 
+    options: ["termômetro", "velocímetro", "hodômetro", "conta-giros"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 40, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "O condutor que dirigir sob efeito de bebida alcoólica:", 
+    options: ["melhora a autoconfiança", "compromete a percepção de riscos e diminui a coordenação motora", "aumenta os reflexos essenciais", "melhora a visão periférica"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 41, 
+    category: Category.PRIMEIROS_SOCORROS, 
+    text: "Em caso de acidente com vítima, primeiros socorros são:", 
+    options: ["providências iniciais e temporárias até a chegada de socorro", "procedimentos exclusivos de médicos", "ações realizadas apenas por profissionais", "atendimento em substituição às equipes de saúde"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 42, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Ao perceber vento lateral forte em uma rodovia, o recomendável é:", 
+    options: ["reduzir a velocidade e transitar pelo acostamento", "reduzir a velocidade adequando a marcha para manter estabilidade", "acelerar para aumentar o atrito", "segurar o volante levemente para evitar capotagem"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 43, 
+    category: Category.SINALIZACAO, 
+    text: "Diante da placa de advertência A-9 (Bifurcação em Y), o condutor deve saber que à frente:", 
+    options: ["há estreitamento da via", "há cruzamento entre vias", "a via passa a ter mão dupla", "há bifurcação da via"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 44, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Condição adversa que gera risco potencial de acidente é:", 
+    options: ["veículo em bom estado", "dia sem chuva com visibilidade total", "condutor bem disposto e alimentado", "conservação inadequada da via, buracos e sinalização apagada"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 45, 
+    category: Category.MEIO_AMBIENTE, 
+    text: "Sobre manutenção veicular e meio ambiente, é correto afirmar:", 
+    options: ["catalisadores não precisam ser substituídos", "combustíveis aditivados eliminam poluição totalmente", "monóxido de carbono é inofensivo", "abastecer com combustível de procedência e revisões periódicas reduzem gases poluentes"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 46, 
+    category: Category.SINALIZACAO, 
+    text: "A placa de regulamentação R-7 estabelece que é proibida a:", 
+    options: ["ultrapassagem", "ultrapassagem de motocicletas", "parada em fila dupla", "circulação de automóveis"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 47, 
+    category: Category.SINALIZACAO, 
+    text: "A sinalização vertical é classificada de acordo com sua função em:", 
+    options: ["placas, marcas de solo e luzes", "proibição, solo e apito", "regulamentação, gestos e buzina", "regulamentação, advertência e indicação"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 48, 
+    category: Category.LEGISLACAO, 
+    text: "Estacionar em desacordo com as posições estabelecidas no CTB tem como penalidade:", 
+    options: ["suspensão do direito de dirigir", "apreensão do veículo", "advertência", "multa"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 49, 
+    category: Category.PRIMEIROS_SOCORROS, 
+    text: "O melhor local do corpo para verificar pulsação de vítima adulta inconsciente é:", 
+    options: ["perna", "pulso", "peito", "pescoço"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 50, 
+    category: Category.SINALIZACAO, 
+    text: "A placa de regulamentação R-20 proíbe os condutores de:", 
+    options: ["utilizar qualquer sinalizador visual", "utilizar aparelho de som no interior", "produzir som alto com a buzina", "acionar buzina ou sinal sonoro"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 51, 
+    category: Category.MECANICA, 
+    text: "A energia mecânica produzida pelo motor é transmitida às rodas pelo sistema de:", 
+    options: ["câmbio", "marchas", "embreagem", "transmissão"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 52, 
+    category: Category.LEGISLACAO, 
+    text: "Transitar pela contramão em vias de sentido único constitui infração de natureza:", 
+    options: ["grave", "média", "leve", "gravíssima"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 53, 
+    category: Category.MECANICA, 
+    text: "O sistema que liga e desliga a força motriz do motor da parte restante da transmissão é:", 
+    options: ["sistema de freios", "correia transmissora", "dínamo", "embreagem"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 54, 
+    category: Category.SINALIZACAO, 
+    text: "Diante da placa A-12 (Interseção em círculo), o condutor deve:", 
+    options: ["passar pelo centro quando não houver veículos", "manter velocidade pois não há risco", "acelerar pois tem preferência", "reduzir a velocidade pois se trata de área de cruzamento"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 55, 
+    category: Category.SINALIZACAO, 
+    text: "Diante da placa A-4b, o condutor deve reduzir a velocidade pois a via apresenta:", 
+    options: ["pista sinuosa", "curva acentuada à esquerda", "curva acentuada em S à direita", "estreitamento de pista à direita"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 56, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Em vias de 60 km/h, qual distância mínima para sinalizar acidente à noite com neblina?", 
+    options: ["120 metros ou 120 passos", "60 metros ou 60 passos", "80 metros ou 80 passos", "40 metros ou 40 passos"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 57, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Condutor que pratica direção defensiva é aquele que:", 
+    options: ["ultrapassa lentos pelo acostamento", "mantém-se atento ao comportamento dos demais usuários", "desce em declive desengrenado", "usa luz alta sob chuva intensa"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 58, 
+    category: Category.SINALIZACAO, 
+    text: "As placas educativas têm como função:", 
+    options: ["indicar locais de serviços auxiliares", "indicar atrativos turísticos", "orientar sobre destinos geográficos", "orientar usuários quanto ao comportamento adequado e seguro no trânsito"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 59, 
+    category: Category.SINALIZACAO, 
+    text: "As placas S-2, S-7 e S-13 indicam respectivamente:", 
+    options: ["telefone, hotel e ferrovia", "telefone, restaurante e pronto-socorro", "telefone, restaurante e terminal rodoviário", "serviço telefônico, restaurante e terminal ferroviário"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 60, 
+    category: Category.LEGISLACAO, 
+    text: "Estacionar o veículo ao lado de outro, em fila dupla, tem penalidade de:", 
+    options: ["apreensão do veículo", "suspensão do direito de dirigir", "multa", "advertência"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 61, 
+    category: Category.LEGISLACAO, 
+    text: "A velocidade mínima permitida em vias arteriais sem sinalização regulamentadora é:", 
+    options: ["40 km/h", "20 km/h", "30 km/h", "50 km/h"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 62, 
+    category: Category.MEIO_AMBIENTE, 
+    text: "Um dos meios para evitar a poluição é:", 
+    options: ["observar a vida útil dos filtros de ar e óleo", "acelerar com o veículo parado", "manter motor ligado em parada prolongada", "transitar com excesso de carga"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 63, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "O condutor apresenta redução da capacidade de decisão, não podendo dirigir, ao consumir:", 
+    options: ["bebidas alcoólicas ou substâncias psicoativas", "refrigerantes dietéticos", "sucos naturais", "café sem açúcar"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 64, 
+    category: Category.LEGISLACAO, 
+    text: "Desobediência ao sinal vermelho ou parada obrigatória é infração gravíssima punida com:", 
+    options: ["multa e remoção", "multa apenas", "multa e apreensão do veículo", "multa e apreensão da CNH"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 65, 
+    category: Category.MEIO_AMBIENTE, 
+    text: "Transportar animais silvestres sem autorização gera autuação por crimes ambientais de acordo com:", 
+    options: ["Ibama", "Detran", "Anvisa", "Denatran"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 66, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Ausência de acostamento em situação de emergência é uma condição adversa relacionada com:", 
+    options: ["clima", "condutor", "via", "veículo"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 67, 
+    category: Category.MECANICA, 
+    text: "Os sulcos dos pneus, com profundidade mínima de 1,6 mm, existem para:", 
+    options: ["escoar água e manter o atrito", "reduzir ruído", "garantir estabilidade em alta velocidade", "distinguir marcas de fabricantes"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 68, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Condutor que vai parar no acostamento deve:", 
+    options: ["acionar pisca-alerta ainda na pista", "entrar na mesma velocidade que vinha", "acionar seta e entrar rapidamente", "acionar seta, reduzir velocidade, entrar, colocar triângulo e ligar pisca-alerta"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 69, 
+    category: Category.SINALIZACAO, 
+    text: "As placas S-6, S-8, S-15 e S-16 indicam respectivamente:", 
+    options: ["ônibus, borracheiro, pedágio, turismo", "rodoviária, mecânico, turismo, pedágio", "ônibus, borracheiro, turismo, pedágio", "terminal rodoviário, borracheiro, informação turística e pedágio"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 70, 
+    category: Category.MECANICA, 
+    text: "Equipamentos que garantem segurança em curvas e frenagens e devem estar em boas condições:", 
+    options: ["amortecedores e pisca-alerta", "pisca-alerta e faróis", "suspensão e faróis", "suspensão e amortecedores"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 71, 
+    category: Category.MEIO_AMBIENTE, 
+    text: "São fontes de poluição sonora veicular:", 
+    options: ["baterias com vazamento", "combustível adulterado", "pneus usados", "escapamento aberto e aparelhos de som"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 72, 
+    category: Category.SINALIZACAO, 
+    text: "A placa de indicação S-11 informa existência de área de:", 
+    options: ["estação ferroviária", "turismo", "estação rodoviária", "aeroporto"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 73, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Conduta adequada do condutor caso ingira bebida alcoólica:", 
+    options: ["lavar o rosto com água fria", "ingerir café", "tomar água", "não dirigir em hipótese alguma"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 74, 
+    category: Category.SINALIZACAO, 
+    text: "Placa R-25c indica que:", 
+    options: ["é obrigatório seguir à direita", "é proibido seguir em frente ou esquerda", "é obrigatório seguir em frente ou à direita", "é obrigatório seguir em frente ou à esquerda"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 75, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Após refeição pesada em dia quente, o condutor pode sofrer com a condição adversa de:", 
+    options: ["fadiga", "preocupação", "euforia", "sono"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 76, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Falta de aderência do pneu com a pista molhada causa o fenômeno da:", 
+    options: ["força centrífuga", "corrente térmica", "corrente aerodinâmica", "aquaplanagem"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 77, 
+    category: Category.MECANICA, 
+    text: "Sistemas vitais para segurança que requerem providências urgentes se falharem:", 
+    options: ["freios, catalisador e pneus", "pneus, rodas e escapamento", "catalisador, direção e rodas", "freios, suspensão e pneus"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 78, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Dirigir por muitas horas seguidas sem descanso representa:", 
+    options: ["cuidado consigo mesmo", "dedicação à empresa", "espírito profissional", "condição adversa do condutor (fadiga) que gera acidentes"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 79, 
+    category: Category.PRIMEIROS_SOCORROS, 
+    text: "Procedimento correto em parada cardiopulmonar feito por equipe de socorro:", 
+    options: ["respiração boca a boca", "ventilação natural", "massagem no coração", "compressão torácica"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 80, 
+    category: Category.LEGISLACAO, 
+    text: "Veículos com prioridade no trânsito são destinados a:", 
+    options: ["polícia e ambulância apenas", "utilidade pública apenas", "rede elétrica apenas", "socorro, polícia, fiscalização e ambulância"], 
+    correctAnswer: 3 
+  },
+  { 
+    id: 81, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Situação que causa perda de estabilidade do veículo:", 
+    options: ["ausência de acostamento", "ventos fortes laterais", "sinalização apagada", "neblina densa"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 82, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Distância percorrida do acionamento do freio até a parada total:", 
+    options: ["percepção", "seguimento", "frenagem", "reação"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 83, 
+    category: Category.MEIO_AMBIENTE, 
+    text: "Respeito ao pedestre e boa convivência são observados quando o condutor:", 
+    options: ["dá prioridade ao pedestre retendo o veículo a distância segura", "avança na direção do pedestre", "para sobre a faixa", "usa buzina ostensiva"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 84, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Em direção defensiva, o elemento 'decisão' depende de:", 
+    options: ["habilidade, tempo, prática, previsão e conhecimento da via/veículo", "apenas experiência", "apenas condições da via", "apenas habilidade"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 85, 
+    category: Category.SINALIZACAO, 
+    text: "Placas de atrativo turístico têm por objetivo:", 
+    options: ["indicar e orientar sobre pontos turísticos", "regulamentar acessos", "advertir perigos", "alertar usuários externos"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 86, 
+    category: Category.LEGISLACAO, 
+    text: "Velocidade mínima permitida em rodovia de 100 km/h máxima é:", 
+    options: ["50 km/h", "60 km/h", "40 km/h", "30 km/h"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 87, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Condições adversas do veículo são:", 
+    options: ["revisões em dia", "manutenção periódica", "mau estado de conservação e pneus gastos", "equipamentos obrigatórios funcionando"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 88, 
+    category: Category.LEGISLACAO, 
+    text: "É considerado crime de trânsito dirigir veículo automotor:", 
+    options: ["acima da velocidade permitida", "desobedecendo o agente", "sem estar habilitado e gerando perigo de dano", "deixando de dar passagem a batedores"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 89, 
+    category: Category.SINALIZACAO, 
+    text: "Diante da placa R-9 (Proibido trânsito de caminhões), o condutor:", 
+    options: ["não deverá transitar com caminhões a partir da placa", "não deve levar carga", "pode transitar sem carga", "pode transitar normalmente"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 90, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Ação correta do condutor ao perceber buracos na via:", 
+    options: ["parar imediatamente", "reduzir a velocidade usando os freios e ficar atento ao tráfego", "acelerar para passar rápido", "mudar de faixa sem sinalizar"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 91, 
+    category: Category.MECANICA, 
+    text: "O conjunto da embreagem está localizado entre:", 
+    options: ["volante do motor e caixa de mudanças", "semieixos e caixa", "diferencial e eixos", "motor e eixos"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 92, 
+    category: Category.LEGISLACAO, 
+    text: "Transitar em marcha à ré em distâncias desnecessárias é infração:", 
+    options: ["leve", "média", "grave", "gravíssima"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 93, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Atitude que desvia a atenção ao dirigir:", 
+    options: ["falar e digitar no celular", "olhar luzes do painel", "mãos no volante", "olhar retrovisores"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 94, 
+    category: Category.MEIO_AMBIENTE, 
+    text: "Qual material demora mais tempo para se decompor?", 
+    options: ["jornal", "pneu", "filtro de cigarro", "papelão"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 95, 
+    category: Category.SINALIZACAO, 
+    text: "Placa R-30 obriga pedestre a andar à esquerda. O condutor deve atentar para:", 
+    options: ["escolares à direita", "pedestres em circulação à esquerda", "crianças à direita", "pedestres à direita"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 96, 
+    category: Category.LEGISLACAO, 
+    text: "Para habilitar-se na categoria 'E' o condutor deve estar habilitado há no mínimo:", 
+    options: ["um ano na categoria 'C'", "dois anos na 'B'", "dois anos na 'A'", "um ano na 'B'"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 97, 
+    category: Category.MECANICA, 
+    text: "A função do silencioso é:", 
+    options: ["aumentar a potência", "controlar poluentes", "reduzir ruídos produzidos pelo motor", "melhorar a queima"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 98, 
+    category: Category.LEGISLACAO, 
+    text: "Medida administrativa para veículo produzindo fumaça acima dos níveis:", 
+    options: ["retenção do veículo para regularização", "suspensão da CNH", "apreensão do veículo", "cassação da CNH"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 99, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Atitude ao constatar fadiga ao dirigir:", 
+    options: ["parar para descansar em local seguro", "reclinar o banco e seguir", "resistir ao cansaço", "ingerir bebidas energéticas e seguir"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 100, 
+    category: Category.LEGISLACAO, 
+    text: "Após aprovado nos exames, o candidato recebe a PPD válida por:", 
+    options: ["2 anos", "1 ano", "5 anos", "6 meses"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 101, 
+    category: Category.PRIMEIROS_SOCORROS, 
+    text: "Em caso de acidente com vítima, o motorista deve:", 
+    options: ["dar água à vítima", "transportar ao hospital", "avaliar o estado geral e solicitar socorro", "remover do veículo"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 102, 
+    category: Category.LEGISLACAO, 
+    text: "Circulação de bicicletas nos passeios públicos é:", 
+    options: ["proibida para aros acima de 24", "permitida se largura for maior que 1m", "permitida desde que autorizada e sinalizada pelo órgão", "permitida apenas para crianças"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 103, 
+    category: Category.LEGISLACAO, 
+    text: "Condutor com PPD que comete infração grave no primeiro ano:", 
+    options: ["faz curso de reciclagem", "recebe CNH com multa", "terá de reiniciar todo o processo de habilitação", "mantém a PPD por mais um ano"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 104, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Aquaplanagem é agravada quando:", 
+    options: ["profundidade dos sulcos está abaixo do mínimo", "embreagem está gasta", "reduz a velocidade antes da água", "suspensão é nova"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 105, 
+    category: Category.MECANICA, 
+    text: "Durabilidade dos pneus é determinada por:", 
+    options: ["manutenção da injeção", "conferir alinhamento e balanceamento das rodas", "troca de câmaras", "balancear cardan"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 106, 
+    category: Category.LEGISLACAO, 
+    text: "Habilitação exigida para carga acima de 3.500 kg de PBT:", 
+    options: ["Categoria C", "Categoria B", "Categoria E", "Categoria D"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 107, 
+    category: Category.SINALIZACAO, 
+    text: "Placa A-29 alerta para:", 
+    options: ["obras", "alagamento", "riscos de cascalho na via", "pista irregular"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 108, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Condições adversas em vias pavimentadas geradoras de riscos:", 
+    options: ["acostamento em desnível", "presença de óleo e areia na pista", "pavimento bom", "trechos de retas"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 109, 
+    category: Category.MECANICA, 
+    text: "Componente cuja má condição representa risco potencial em velocidade:", 
+    options: ["roda trincada", "palheta ressecada", "rodas desalinhadas", "bateria fraca"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 110, 
+    category: Category.SINALIZACAO, 
+    text: "Placa A-19 (Lombada) exige:", 
+    options: ["reduzir pois há depressão", "reduzir pois há lombada", "reduzir pois há parada de ônibus", "manter velocidade"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 111, 
+    category: Category.SINALIZACAO, 
+    text: "Placa R-1 (Parada Obrigatória) exige que condutor reduza e:", 
+    options: ["siga sem parar", "pare e acesse com segurança", "pare apenas se houver preferencial", "atravesse devagar"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 112, 
+    category: Category.MECANICA, 
+    text: "Peça que liga o semieixo à roda permitindo transmissão nos tração dianteira:", 
+    options: ["ponta cinética", "caixa de câmbio", "junta homocinética", "embreagem"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 113, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "Para conversão à esquerda em rodovia sem local apropriado, o condutor deve:", 
+    options: ["cruzar sem parar", "acessar acostamento à direita e aguardar momento seguro", "parar na pista no centro", "reduzir e cruzar à esquerda rápido"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 114, 
+    category: Category.MECANICA, 
+    text: "Manobra noturna prejudicada se estiverem queimadas as luzes de:", 
+    options: ["freio", "setas indicadoras de direção", "lanterna", "ré"], 
+    correctAnswer: 1 
+  },
+  { 
+    id: 115, 
+    category: Category.SINALIZACAO, 
+    text: "Placa A-33a alerta para aproximação de:", 
+    options: ["área com escolares e risco de atropelamento", "passagem de pedestres", "área de lazer", "crianças brincando"], 
+    correctAnswer: 0 
+  },
+  { 
+    id: 116, 
+    category: Category.MECANICA, 
+    text: "Redução do atrito entre peças internas do motor é proporcionada pelo:", 
+    options: ["velas", "água", "óleo do motor", "fluido de freio"], 
+    correctAnswer: 2 
+  },
+  { 
+    id: 117, 
+    category: Category.DIRECAO_DEFENSIVA, 
+    text: "No trânsito, o condutor deve ter percepção e respeito, observando:", 
+    options: ["apenas retrovisores", "apenas via à frente", "luzes do painel", "constantemente todo o ambiente ao seu redor"], 
+    correctAnswer: 3 
+  }
 ];
