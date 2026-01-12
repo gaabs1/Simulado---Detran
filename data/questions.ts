@@ -323,7 +323,7 @@ export const QUESTIONS: Question[] = [
     id: 32, category: Category.SINALIZACAO, 
     text: "Diante da placa de advertência A-21a, o condutor deve estar alerta", 
     options: ["ao estreitamento da pista à esquerda", "ao estreitamento da pista ao centro", "à ponte estreita na pista", "ao alargamento da pista à esquerda"], 
-    correctAnswer: 0, imageUrl: IMG.A21a 
+    correctAnswer: 1, imageUrl: IMG.A21a 
   },
   { 
     id: 33, category: Category.DIRECAO_DEFENSIVA, 
@@ -376,7 +376,7 @@ export const QUESTIONS: Question[] = [
   { 
     id: 41, category: Category.PRIMEIROS_SOCORROS, 
     text: "Em caso de acidente de trânsito com vítima(s), podemos dizer que primeiros socorros são", 
-    options: ["as providências tomadas no local, iniciais e temporárias, até a chegada de socorro", "procedimentos de competência exclusiva de médicos no local do acidente", "as ações que só podem ser realizadas por equipes profissionais", "o pronto atendimento da(s) vítima(s) em substituição às equipes da saúde"], 
+    options: ["as providências tomadas no local, iniciais e temporários, até a chegada de socorro", "procedimentos de competência exclusiva de médicos no local do acidente", "as ações que só podem ser realizadas por equipes profissionais", "o pronto atendimento da(s) vítima(s) em substituição às equipes da saúde"], 
     correctAnswer: 0 
   },
   { 
@@ -545,7 +545,7 @@ export const QUESTIONS: Question[] = [
     id: 69, category: Category.SINALIZACAO, 
     text: "As placas S-6, S-8, S-15, e S-16 indicam, respectivamente nessa ordem:", 
     options: ["parada de ônibus, borracheiro, pedágio e informação turística", "terminal rodoviário, serviço mecânico, informação turística e pedágio", "parada de ônibus, borracheiro, informação turística e pedágio", "terminal rodoviário, borracheiro, informação turística e pedágio"], 
-    correctAnswer: 2, imageUrl: IMG.S15 
+    correctAnswer: 3, imageUrl: IMG.S15 
   },
   { 
     id: 70, category: Category.MECANICA, 
@@ -622,7 +622,7 @@ export const QUESTIONS: Question[] = [
   { 
     id: 82, category: Category.DIRECAO_DEFENSIVA, 
     text: "A distância percorrida do momento em que o freio é acionado até a parada total é chamada de", 
-    options: ["distância de percepção", "distância de seguimento", "distância de frenagem", "distância de reação"], 
+    options: ["distância de perception", "distância de seguimento", "distância de frenagem", "distância de reação"], 
     correctAnswer: 2 
   },
   { 
@@ -791,7 +791,7 @@ export const QUESTIONS: Question[] = [
     id: 110, category: Category.SINALIZACAO, 
     text: "Diante da placa de advertência A-19, qual deve ser a ação do condutor?", 
     options: ["reduzir a velocidade, pois há depressão", "reduzir a velocidade, pois a via apresenta uma lombada", "reduzir a velocidade, pois é parada de ônibus", "manter a velocidade"], 
-    correctAnswer: 1, imageUrl: IMG.A19 
+    correctAnswer: 0, imageUrl: IMG.A19 
   },
   { 
     id: 111, category: Category.SINALIZACAO, 
@@ -1120,8 +1120,8 @@ export const QUESTIONS: Question[] = [
   { 
     id: 165, category: Category.SINALIZACAO, 
     text: "Diante da placa A-2a, reduzir velocidade pois a via apresenta", 
-    options: ["curva esquerda", "sinuosa", "curva S", "curva à direita"], 
-    correctAnswer: 3, imageUrl: IMG.A2a 
+    options: ["curva à esquerda", "sinuosa", "curva S", "curva à direita"], 
+    correctAnswer: 0, imageUrl: IMG.A2a 
   },
   { 
     id: 166, category: Category.MEIO_AMBIENTE, 
